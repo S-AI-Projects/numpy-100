@@ -882,30 +882,47 @@ print(F)
 Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★☆)
 
 < h66
-hint: np.unique
+hint: np.unique, reshape(-1, 3), np.uint8, np.dot, np.uint32
 
 < a66
 # Author: Fisher Wang
 
-w, h = 256, 256
-I = np.random.randint(0, 4, (h, w, 3)).astype(np.ubyte)
+# Create an image with three RGB pixels:
+# Red, Blue, Red
+
+w, h = 3, 1
+
+I = np.array(
+    [[[255, 0, 0],
+      [0, 0, 255],
+      [255, 0, 0]]],
+    dtype=np.uint8
+)
+
+# Verify image shape and data type
+assert I.shape == (h, w, 3)
+assert I.dtype == np.uint8
+
+# Verify RGB channel order
+assert np.array_equal(I[0, 0], [255, 0, 0])
+assert np.array_equal(I[0, 1], [0, 0, 255])
+assert np.array_equal(I[0, 2], [255, 0, 0])
+
+# Standard method
 colors = np.unique(I.reshape(-1, 3), axis=0)
 n = len(colors)
+
 print(n)
 
-# Faster version
-# Author: Mark Setchell
-# https://stackoverflow.com/a/59671950/2836621
+# Faster method
+I24 = np.dot(
+    I.astype(np.uint32),
+    [1, 256, 65536]
+)
 
-w, h = 256, 256
-I = np.random.randint(0,4,(h,w,3), dtype=np.uint8)
+n_fast = len(np.unique(I24))
 
-# View each pixel as a single 24-bit integer, rather than three 8-bit bytes
-I24 = np.dot(I.astype(np.uint32),[1,256,65536])
-
-# Count unique colours
-n = len(np.unique(I24))
-print(n)
+print(n_fast)
 
 < q67
 Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)

@@ -179,7 +179,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 65. How to accumulate elements of a vector (X) to an array (F) based on an index list (I)? (★★★)
 `hint: np.bincount`
 #### 66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★☆)
-`hint: np.unique`
+`hint: np.unique, reshape(-1, 3), np.uint8, np.dot, np.uint32`
 #### 67. Considering a four dimensions array, how to get sum over the last two axis at once? (★★★)
 `hint: sum(axis=(-2,-1))`
 #### 68. Considering a one-dimensional vector D, how to compute means of subsets of D using a vector S of same size describing subset  indices? (★★★)
