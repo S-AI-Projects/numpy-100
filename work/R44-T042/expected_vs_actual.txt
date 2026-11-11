@@ -1,0 +1,16 @@
+Expected 4x5: 14 border ones and 6 interior zeros.
+Expected 1x3: three ones; no interior exists.
+
+[[1. 1. 1. 1. 1.]
+ [1. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 1.]
+ [1. 1. 1. 1. 1.]]
+[[1. 1. 1.]]
+4x5 result:
+[[1. 1. 1. 1. 1.]
+ [1. 0. 0. 0. 1.]
+ [1. 0. 0. 0. 1.]
+ [1. 1. 1. 1. 1.]]
+1x3 result:
+[[1. 1. 1.]]
+ALL ASSERTIONS PASSED

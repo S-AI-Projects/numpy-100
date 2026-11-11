@@ -116,12 +116,18 @@ m = Z.mean()
 print(m)
 ```
 #### 15. Create a 2d array with 1 on the border and 0 inside (★☆☆)
-`hint: array[1:-1, 1:-1]`
+`hint: array[1:-1, 1:-1]; an interior exists only when both dimensions are at least 3`
 
 ```python
-Z = np.ones((10,10))
-Z[1:-1,1:-1] = 0
-print(Z)
+# A 4x5 array: 14 border ones and 6 interior zeros
+Z_4x5 = np.ones((4, 5))
+Z_4x5[1:-1, 1:-1] = 0
+print(Z_4x5)
+
+# A 1x3 array: no interior, so all elements remain 1
+Z_1x3 = np.ones((1, 3))
+Z_1x3[1:-1, 1:-1] = 0
+print(Z_1x3)
 ```
 #### 16. How to add a border (filled with 0's) around an existing array? (★☆☆)
 `hint: np.pad`

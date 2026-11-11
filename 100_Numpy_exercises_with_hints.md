@@ -41,7 +41,7 @@ File automatically generated. See the documentation to update questions/answers/
 #### 14. Create a random vector of size 30 and find the mean value (★☆☆)
 `hint: mean`
 #### 15. Create a 2d array with 1 on the border and 0 inside (★☆☆)
-`hint: array[1:-1, 1:-1]`
+`hint: array[1:-1, 1:-1]; an interior exists only when both dimensions are at least 3`
 #### 16. How to add a border (filled with 0's) around an existing array? (★☆☆)
 `hint: np.pad`
 #### 17. What is the result of the following expression? (★☆☆)

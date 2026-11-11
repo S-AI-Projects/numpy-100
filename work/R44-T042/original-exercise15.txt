@@ -1,0 +1,11 @@
+< q15
+Create a 2d array with 1 on the border and 0 inside (★☆☆)
+
+< h15
+hint: array[1:-1, 1:-1]
+
+< a15
+Z = np.ones((10,10))
+Z[1:-1,1:-1] = 0
+print(Z)
+
