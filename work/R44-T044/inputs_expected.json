@@ -1,0 +1,27 @@
+{
+  "original_examples": [
+    {
+      "expression": "np.array(0) / np.array(0)",
+      "expected": "NaN; one RuntimeWarning"
+    },
+    {
+      "expression": "np.array(0) // np.array(0)",
+      "expected": "zero in the tested environment; one RuntimeWarning"
+    },
+    {
+      "expression": "np.array([np.nan]).astype(int).astype(float)",
+      "expected": "integer conversion warns; the resulting float does not preserve NaN; exact integer value is not assumed portable"
+    }
+  ],
+  "five_variations": [
+    "0.0 divided by -0.0 produces NaN",
+    "An array of zero values divided by zero produces NaN values",
+    "int32 zero floor-divided by int32 zero produces zero in this environment",
+    "An array of integer zeros floor-divided by zero produces zeros in this environment",
+    "Two NaN values converted through an integer array do not remain NaN"
+  ],
+  "warning_category": "RuntimeWarning",
+  "numpy_version": "2.5.4",
+  "python_version": "3.15.2 (v3.15.2:5e58eaad7c5, Oct 25 2026, 14:19:34) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O"
+}

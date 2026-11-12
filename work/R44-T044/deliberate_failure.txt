@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/abhishekkumar/numpy-100/work/R44-T044/deliberate_failure.py", line 29, in <module>
+    assert not np.isnan(true_division)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,17 @@
+Original true division: nan
+True division warnings: ['RuntimeWarning']
+Original floor division: 0
+Floor division warnings: ['RuntimeWarning']
+NaN integer intermediate: [0]
+NaN conversion final float: [0.]
+NaN conversion warnings: ['RuntimeWarning']
+
+Five variations:
+Variation 1: nan; warnings: ['RuntimeWarning']
+Variation 2: [nan nan]; warnings: ['RuntimeWarning']
+Variation 3: 0; warnings: ['RuntimeWarning']
+Variation 4: [0 0]; warnings: ['RuntimeWarning']
+Variation 5 integer: [0 0]; warnings: ['RuntimeWarning']
+Variation 5 float: [0. 0.]; warnings: ['RuntimeWarning']
+
+All original and variation assertions passed.

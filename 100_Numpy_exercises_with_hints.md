@@ -95,7 +95,11 @@ np.array(0) / np.array(0)
 np.array(0) // np.array(0)
 np.array([np.nan]).astype(int).astype(float)
 ```
-`No hints provided...`
+`The result depends on the operation and dtype. For zero integer operands, true division produces NaN, while integer floor division produces 0 in the tested NumPy environment; both issue RuntimeWarning messages, but for different reasons.
+
+NaN is not a valid integer value. Converting NaN to an integer raises an invalid-value warning and does not preserve NaN. On NumPy 2.5.4 in the tested environment, the intermediate int64 value is 0 and converting it back to float gives 0.0. Do not assume that exact integer result is portable.
+
+Use np.isnan and np.isinf to inspect special values. Capture warnings with warnings.catch_warnings and use np.errstate(all="warn") to make the behaviour explicit.`
 #### 29. How to round away from zero a float array ? (★☆☆)
 `hint: np.uniform, np.copysign, np.ceil, np.abs, np.where`
 #### 30. How to find common values between two arrays? (★☆☆)
