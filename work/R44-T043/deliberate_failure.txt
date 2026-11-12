@@ -1,0 +1,11 @@
+Exit code: 1
+Traceback (most recent call last):
+  File "/Users/abhishekkumar/numpy-100/work/R44-T043/deliberate_failure.py", line 12, in <module>
+    np.testing.assert_equal(original_reduce, 46)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/numpy/testing/_private/utils.py", line 461, in assert_equal
+    raise AssertionError(msg)
+AssertionError:
+Items are not equal:
+ ACTUAL: np.int64(45)
+ DESIRED: 46

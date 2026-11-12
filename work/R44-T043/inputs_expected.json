@@ -1,0 +1,27 @@
+{
+    "original_fixture": {
+        "input": "np.arange(10)",
+        "expected": 45
+    },
+    "integer_fixture": {
+        "input": [
+            1,
+            2,
+            3
+        ],
+        "expected": 6
+    },
+    "float_fixture": {
+        "input": [
+            0.5,
+            1.25,
+            2.75,
+            4.0
+        ],
+        "expected": 8.5,
+        "tolerance": {
+            "rtol": 1e-12,
+            "atol": 1e-12
+        }
+    }
+}

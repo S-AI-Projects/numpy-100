@@ -124,7 +124,8 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 40. Create a random vector of size 10 and sort it (★★☆)
 `hint: sort`
 #### 41. How to sum a small array faster than np.sum? (★★☆)
-`hint: np.add.reduce`
+`Compare the explicit addition reduction `np.add.reduce(Z)` with the higher-level function `np.sum(Z)`. Both calculate the sum of the same array. For an ordinary ndarray, `np.sum` generally uses NumPy's addition-reduction machinery internally. The explicit ufunc form makes the reduction operation visible; it does not guarantee a faster result. Compare identical integer and floating-point fixtures, then benchmark both methods on the same array. Performance depends on factors such as dtype, array layout, NumPy version and array size.
+Both methods reduce the input array to a scalar result; neither requires creating an intermediate array of partial sums. np.add.reduce directly exposes the addition ufunc's reduction operation, while np.sum provides the higher-level summation interface.`
 #### 42. Consider two random arrays A and B, check if they are equal (★★☆)
 `hint: np.allclose, np.array_equal`
 #### 43. Make an array immutable (read-only) (★★☆)

@@ -1,0 +1,8 @@
+Original arange(10) results: 45 45
+Integer results: 6 6
+Float results: 8.5 8.5
+Reduction result type: float64
+Sum result type: float64
+np.add.reduce: 143.37 ns/call (best of 5)
+np.sum:        470.80 ns/call (best of 5)
+Timings are measurements for this environment, not a universal ranking.
