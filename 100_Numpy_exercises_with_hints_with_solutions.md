@@ -802,16 +802,25 @@ A[[0,1]] = A[[1,0]]
 print(A)
 ```
 #### 73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the  triangles (★★★)
-`hint: repeat, np.roll, np.sort, view, np.unique`
+`hint: repeat | np.roll | reshape | np.sort endpoints | structured dtype view | np.unique`
 
 ```python
 # Author: Nicolas P. Rougier
 
+# Generate 10 triangles, each containing 3 vertex indices.
 faces = np.random.randint(0,100,(10,3))
+
+# Generate the three edge pairs for every triangle.
 F = np.roll(faces.repeat(2,axis=1),-1,axis=1)
 F = F.reshape(len(F)*3,2)
+
+# Normalize undirected edges before removing duplicates.
+# For [[0,1,2],[2,1,3]], (1,2) and (2,1) represent the same edge.
+# Sorting each pair makes both edges (1,2), leaving 5 unique edges.
 F = np.sort(F,axis=1)
-G = F.view( dtype=[('p0',F.dtype),('p1',F.dtype)] )
+
+# View each endpoint pair as one structured record.
+G = F.view(dtype=[('p0',F.dtype),('p1',F.dtype)])
 G = np.unique(G)
 print(G)
 ```

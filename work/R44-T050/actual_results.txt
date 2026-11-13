@@ -1,0 +1,5 @@
+[(0, 1) (0, 2) (1, 2) (1, 3) (2, 3)]
+Unique edges: [[0, 1], [0, 2], [1, 2], [1, 3], [2, 3]]
+Unique edge count: 5
+Shared edge occurrences after normalization: 2
+Edge normalization: PASSED
