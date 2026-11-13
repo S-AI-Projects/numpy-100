@@ -108,7 +108,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 ```
 `hint: imaginary number`
 #### 33. How to get the dates of yesterday, today and tomorrow? (★☆☆)
-`hint: np.datetime64, np.timedelta64`
+`hint: np.datetime64, np.timedelta64, date arithmetic`
 #### 34. How to get all the dates corresponding to the month of July 2016? (★★☆)
 `hint: np.arange(dtype=datetime64['D'])`
 #### 35. How to compute ((A+B)*(-A/2)) in place (without copy)? (★★☆)

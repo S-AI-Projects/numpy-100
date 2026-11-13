@@ -1,0 +1,22 @@
+Deliberate failure test
+Changed tomorrow calculation to add 2 days instead of 1.
+Checker exit code: 1
+Result: Incorrect output rejected successfully.
+
+Checker output:
+Traceback (most recent call last):
+  File "/Users/abhishekkumar/numpy-100/work/R44-T046/check.py", line 39, in <module>
+    raise AssertionError(
+        f"Output mismatch!\nExpected:\n{expected}\nActual:\n{actual}"
+    )
+AssertionError: Output mismatch!
+Expected:
+Yesterday: 2024-02-29
+Today: 2024-03-01
+Tomorrow: 2024-03-02
+
+Actual:
+Yesterday: 2024-02-29
+Today: 2024-03-01
+Tomorrow: 2024-03-03
+

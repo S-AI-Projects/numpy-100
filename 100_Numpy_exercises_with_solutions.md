@@ -319,9 +319,18 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 
 
 ```python
-yesterday = np.datetime64('today') - np.timedelta64(1, 'D')
-today     = np.datetime64('today')
-tomorrow  = np.datetime64('today') + np.timedelta64(1, 'D')
+# Use a fixed date to make the example reproducible.
+today = np.datetime64('2024-03-01', 'D')
+
+# A one-day timedelta can be reused for both calculations.
+one_day = np.timedelta64(1, 'D')
+
+yesterday = today - one_day
+tomorrow = today + one_day
+
+print("Yesterday:", yesterday)
+print("Today:", today)
+print("Tomorrow:", tomorrow)
 ```
 #### 34. How to get all the dates corresponding to the month of July 2016? (★★☆)
 
