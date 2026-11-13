@@ -165,7 +165,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 58. Subtract the mean of each row of a matrix (★★☆)
 `hint: mean(axis=,keepdims=)`
 #### 59. How to sort an array by the nth column? (★★☆)
-`hint: argsort`
+`hint: argsort, kind='stable'`
 #### 60. How to tell if a given 2D array has null columns? (★★☆)
 `hint: any, ~`
 #### 61. Find the nearest value from a given value in an array (★★☆)

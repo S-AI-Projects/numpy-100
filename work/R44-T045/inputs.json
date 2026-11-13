@@ -1,0 +1,51 @@
+{
+  "exercise": 59,
+  "main_input": [
+    [
+      2,
+      9
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "sort_column_index": 1,
+  "expected_output": [
+    [
+      3,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "tie_input": [
+    [
+      10,
+      5
+    ],
+    [
+      20,
+      3
+    ],
+    [
+      30,
+      5
+    ],
+    [
+      40,
+      3
+    ]
+  ],
+  "tie_ordering": "Stable: equal column values retain original row order."
+}

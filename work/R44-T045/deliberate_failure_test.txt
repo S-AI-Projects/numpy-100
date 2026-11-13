@@ -1,0 +1,27 @@
+Deliberately incorrect sorted output was rejected.
+Exit code: 1
+Error:
+Traceback (most recent call last):
+  File "/Users/abhishekkumar/numpy-100/work/R44-T045/check.py", line 65, in <module>
+    raise AssertionError(
+        f"Output mismatch.\nEXPECTED:\n{expected}\nACTUAL:\n{actual}"
+    )
+AssertionError: Output mismatch.
+EXPECTED:
+[[2 9]
+ [1 8]
+ [3 7]]
+[[3 7]
+ [1 8]
+ [2 9]]
+STABLE_TIE_CHECK_PASSED
+
+ACTUAL:
+[[2 9]
+ [1 8]
+ [3 7]]
+[[2 9]
+ [1 8]
+ [3 7]]
+STABLE_TIE_CHECK_PASSED
+

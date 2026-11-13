@@ -608,14 +608,18 @@ Y = X - X.mean(axis=1).reshape(-1, 1)
 print(Y)
 ```
 #### 59. How to sort an array by the nth column? (★★☆)
-`hint: argsort`
+`hint: argsort, kind='stable'`
 
 ```python
 # Author: Steve Tjoa
 
-Z = np.random.randint(0,10,(3,3))
+# Fixed input makes the example reproducible
+Z = np.array([[2, 9], [1, 8], [3, 7]])
 print(Z)
-print(Z[Z[:,1].argsort()])
+
+# Sort rows by the second column (column index 1).
+# Stable sorting preserves the original order when values are tied.
+print(Z[Z[:, 1].argsort(kind="stable")])
 ```
 #### 60. How to tell if a given 2D array has null columns? (★★☆)
 `hint: any, ~`

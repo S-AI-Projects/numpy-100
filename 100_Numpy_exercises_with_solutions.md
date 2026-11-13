@@ -613,9 +613,13 @@ print(Y)
 ```python
 # Author: Steve Tjoa
 
-Z = np.random.randint(0,10,(3,3))
+# Fixed input makes the example reproducible
+Z = np.array([[2, 9], [1, 8], [3, 7]])
 print(Z)
-print(Z[Z[:,1].argsort()])
+
+# Sort rows by the second column (column index 1).
+# Stable sorting preserves the original order when values are tied.
+print(Z[Z[:, 1].argsort(kind="stable")])
 ```
 #### 60. How to tell if a given 2D array has null columns? (★★☆)
 
