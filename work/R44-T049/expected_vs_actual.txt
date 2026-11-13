@@ -1,0 +1,21 @@
+EXPECTED:
+Result: [4 6]
+Separate result: True
+Output array: [4 6]
+Returned same output array: True
+Ufunc name: add
+Ufunc verification: PASSED
+Element-wise addition: PASSED
+Separate result allocation: PASSED
+out= target reuse: PASSED
+
+ACTUAL:
+Result: [4 6]
+Separate result: True
+Output array: [4 6]
+Returned same output array: True
+Ufunc name: add
+Ufunc verification: PASSED
+Element-wise addition: PASSED
+Separate result allocation: PASSED
+out= target reuse: PASSED

@@ -46,7 +46,25 @@ print("%d bytes" % Z.nbytes)
 
 
 ```python
+# Display the documentation for the NumPy addition ufunc.
 !python -c "import numpy; numpy.info(numpy.add)"
+
+# np.add is a ufunc that adds corresponding elements.
+import numpy as np
+
+a = np.array([1, 2])
+b = np.array([3, 4])
+
+# Without out=, np.add returns a separate result array.
+result = np.add(a, b)
+print("Result:", result)
+print("Separate result:", result is not a and result is not b)
+
+# With out=, np.add writes into the supplied output array.
+out = np.empty_like(a)
+returned = np.add(a, b, out=out)
+print("Output array:", out)
+print("Returned same output array:", returned is out)
 ```
 #### 6. Create a null vector of size 10 but the fifth value which is 1 (★☆☆)
 

@@ -21,7 +21,7 @@ File automatically generated. See the documentation to update questions/answers/
 #### 4. How to find the memory size of any array (★☆☆)
 `hint: size, itemsize`
 #### 5. How to get the documentation of the numpy add function from the command line? (★☆☆)
-`hint: np.info`
+`hint: np.info | np.add ufunc | out= output reuse`
 #### 6. Create a null vector of size 10 but the fifth value which is 1 (★☆☆)
 `hint: array[4]`
 #### 7. Create a vector with values ranging from 10 to 49 (★☆☆)

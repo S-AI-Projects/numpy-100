@@ -1,0 +1,26 @@
+Deliberate wrong-result mutation rejected: YES
+Exit code: 1
+Traceback (most recent call last):
+  File "<string>", line 27, in <module>
+    assert_array_equal(result, [4, 6])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/numpy/testing/_private/utils.py", line 1128, in assert_array_equal
+    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         verbose=verbose, header='Arrays are not equal',
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         strict=strict)
+                         ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/numpy/testing/_private/utils.py", line 988, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+
+Mismatched elements: 2 / 2 (100%)
+Mismatch at indices:
+ [0]: 99 (ACTUAL), 4 (DESIRED)
+ [1]: 99 (ACTUAL), 6 (DESIRED)
+Max absolute difference among violations: 95
+Max relative difference among violations: 23.75
+ ACTUAL: array([99, 99])
+ DESIRED: array([4, 6])

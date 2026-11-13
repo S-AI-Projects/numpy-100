@@ -1,0 +1,15 @@
+{
+  "a": [
+    1,
+    2
+  ],
+  "b": [
+    3,
+    4
+  ],
+  "expected_sum": [
+    4,
+    6
+  ],
+  "out_argument": "preallocated array with same shape and dtype as a"
+}
