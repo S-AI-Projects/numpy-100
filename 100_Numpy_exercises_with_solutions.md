@@ -597,15 +597,25 @@ print(Z)
 ```python
 # Author: Warren Weckesser
 
-X = np.random.rand(5, 10)
+# Subtract the mean of each row using a reproducible example.
+X = np.array([[1., 3.],
+              [2., 6.]])
 
-# Recent versions of numpy
-Y = X - X.mean(axis=1, keepdims=True)
+# Recent versions of numpy: keep each row mean as a column.
+row_means = X.mean(axis=1, keepdims=True)
+Y = X - row_means
 
-# Older versions of numpy
-Y = X - X.mean(axis=1).reshape(-1, 1)
+# Older versions of numpy: reshape the row means into a column.
+Y_older = X - X.mean(axis=1).reshape(-1, 1)
 
-print(Y)
+# Each centered row should have a mean of zero.
+np.testing.assert_allclose(Y, Y_older, rtol=0, atol=1e-12)
+np.testing.assert_allclose(Y.mean(axis=1), [0., 0.], rtol=0, atol=1e-12)
+
+print("Input:\n", X)
+print("Row means:\n", row_means)
+print("Centered matrix:\n", Y)
+print("Row means after centering:", Y.mean(axis=1))
 ```
 #### 59. How to sort an array by the nth column? (★★☆)
 

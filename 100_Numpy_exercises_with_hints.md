@@ -163,7 +163,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 57. How to randomly place p elements in a 2D array? (★★☆)
 `hint: np.put, np.random.choice`
 #### 58. Subtract the mean of each row of a matrix (★★☆)
-`hint: mean(axis=,keepdims=)`
+`hint: mean(axis=1, keepdims=True); older numpy: reshape(-1, 1)`
 #### 59. How to sort an array by the nth column? (★★☆)
 `hint: argsort`
 #### 60. How to tell if a given 2D array has null columns? (★★☆)

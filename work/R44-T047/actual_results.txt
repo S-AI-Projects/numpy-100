@@ -1,0 +1,6 @@
+Exercise 58 published solution: PASSED
+Modern keepdims method: PASSED
+Older reshape method: PASSED
+Both methods produce the expected centered matrix: PASSED
+Every resulting row has mean zero: PASSED
+Printed output matches expected output: PASSED
