@@ -239,7 +239,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 95. Convert a vector of ints into a matrix binary representation (★★★)
 `hint: np.unpackbits`
 #### 96. Given a two dimensional array, how to extract unique rows? (★★★)
-`hint: np.ascontiguousarray | np.unique`
+`hint: np.ascontiguousarray | np.void raw-byte ordering | np.unique(axis=0) numeric row ordering`
 #### 97. Considering 2 vectors A & B, write the einsum equivalent of inner, outer, sum, and mul function (★★★)
 `hint: np.einsum`
 #### 98. Considering a path described by two vectors (X,Y), how to sample it using equidistant samples (★★★)?

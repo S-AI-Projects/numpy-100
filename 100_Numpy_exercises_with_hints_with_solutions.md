@@ -1226,21 +1226,42 @@ I = np.array([0, 1, 2, 3, 15, 16, 32, 64, 128], dtype=np.uint8)
 print(np.unpackbits(I[:, np.newaxis], axis=1))
 ```
 #### 96. Given a two dimensional array, how to extract unique rows? (★★★)
-`hint: np.ascontiguousarray | np.unique`
+`hint: np.ascontiguousarray | np.void raw-byte ordering | np.unique(axis=0) numeric row ordering`
 
 ```python
 # Author: Jaime Fernández del Río
+# Legacy method: compare each contiguous row as a raw-byte value.
 
-Z = np.random.randint(0,2,(6,3))
-T = np.ascontiguousarray(Z).view(np.dtype((np.void, Z.dtype.itemsize * Z.shape[1])))
+Z = np.array([[1, 2], [1, 2], [2, 1]])
+T = np.ascontiguousarray(Z).view(
+    np.dtype((np.void, Z.dtype.itemsize * Z.shape[1]))
+)
 _, idx = np.unique(T, return_index=True)
 uZ = Z[idx]
+print("Legacy unique rows:")
 print(uZ)
 
 # Author: Andreas Kouzelis
 # NumPy >= 1.13
+# Modern method: unique rows sorted by their numeric values.
 uZ = np.unique(Z, axis=0)
+print("Modern unique rows:")
 print(uZ)
+
+# Boundary case: raw-byte order is not numeric row order.
+# Explicit little-endian int64 makes this example reproducible.
+Z_bytes = np.array([[1], [256]], dtype="<i8")
+T_bytes = np.ascontiguousarray(Z_bytes).view(
+    np.dtype((np.void, Z_bytes.dtype.itemsize * Z_bytes.shape[1]))
+)
+_, byte_idx = np.unique(T_bytes, return_index=True)
+legacy_bytes = Z_bytes[byte_idx]
+modern_numeric = np.unique(Z_bytes, axis=0)
+
+print("Legacy raw-byte order:")
+print(legacy_bytes)
+print("Modern numeric order:")
+print(modern_numeric)
 ```
 #### 97. Considering 2 vectors A & B, write the einsum equivalent of inner, outer, sum, and mul function (★★★)
 `hint: np.einsum`

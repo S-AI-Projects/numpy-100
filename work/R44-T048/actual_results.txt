@@ -1,0 +1,12 @@
+Legacy unique rows:
+[[1 2]
+ [2 1]]
+Modern unique rows:
+[[1 2]
+ [2 1]]
+Legacy raw-byte order:
+[[256]
+ [  1]]
+Modern numeric order:
+[[  1]
+ [256]]
