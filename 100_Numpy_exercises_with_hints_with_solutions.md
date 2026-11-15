@@ -482,13 +482,27 @@ Z = np.zeros((40,40))
 print(Z)
 ```
 #### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)
-`hint: argmin`
+`hint: argmin (the closest value has the smallest absolute difference; on a tie argmin returns the first index)`
 
 ```python
 Z = np.arange(100)
 v = np.random.uniform(0,100)
 index = (np.abs(Z-v)).argmin()
 print(Z[index])
+
+# Step by step with a fixed input: Z = [1, 4, 8] and v = 5
+Z = np.array([1, 4, 8])
+v = 5
+print(Z - v)                          # [-4 -1  3]   signed distance of each value to v
+print(np.abs(Z - v))                  # [4 1 3]      distance of each value to v
+print((np.abs(Z - v)).argmin())       # 1            index of the smallest distance
+print(Z[(np.abs(Z - v)).argmin()])    # 4            the closest value
+
+# Tie policy: for v = 6 the distances to 4 and 8 are both 2.
+# argmin returns the FIRST index of the minimum, so the earlier element (4) wins.
+v = 6
+print(np.abs(Z - v))                  # [5 2 2]
+print(Z[(np.abs(Z - v)).argmin()])    # 4
 ```
 #### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
 `hint: dtype`
