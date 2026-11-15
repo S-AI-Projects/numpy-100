@@ -118,7 +118,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)
 `hint: np.arange`
 #### 38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆)
-`hint: np.fromiter`
+`hint: np.fromiter (it pulls values from the generator until it is exhausted, so a generator can be used only once)`
 #### 39. Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)
 `hint: np.linspace`
 #### 40. Create a random vector of size 10 and sort it (★★☆)

@@ -466,7 +466,7 @@ print(Z)
 Consider a generator function that generates 10 integers and use it to build an array (★☆☆)
 
 < h38
-hint: np.fromiter
+hint: np.fromiter (it pulls values from the generator until it is exhausted, so a generator can be used only once)
 
 < a38
 def generate():
@@ -474,6 +474,20 @@ def generate():
         yield x
 Z = np.fromiter(generate(),dtype=float,count=-1)
 print(Z)
+
+# What fromiter does: count=-1 means "keep pulling values until the generator is exhausted";
+# each value is stored with the requested dtype.
+g = generate()
+print(next(g), next(g), next(g))                      # 0 1 2   the first values the generator yields
+print(Z.shape, Z.dtype)                               # (10,) float64
+print(Z.tolist())                                     # [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+print(np.fromiter(generate(), dtype=int).tolist())    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  same values, integer dtype
+
+# A generator can be consumed only once: after the first fromiter nothing is left
+g = generate()
+first = np.fromiter(g, dtype=float)
+second = np.fromiter(g, dtype=float)
+print(first.shape, second.shape)                      # (10,) (0,)
 
 < q39
 Create a vector of size 10 with values ranging from 0 to 1, both excluded (★★☆)
