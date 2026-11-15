@@ -199,7 +199,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 75. How to compute averages using a sliding window over an array? (★★★)
 `hint: np.cumsum, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
 #### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is  shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)
-`hint: from numpy.lib import stride_tricks, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib import stride_tricks, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0); both return views of the input, not copies`
 #### 77. How to negate a boolean, or to change the sign of a float inplace? (★★★)
 `hint: np.logical_not, np.negative`
 #### 78. Consider 2 sets of points P0,P1 describing lines (2d) and a point p, how to compute distance from p to each line i (P0[i],P1[i])? (★★★)

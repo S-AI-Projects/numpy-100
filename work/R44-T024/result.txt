@@ -1,0 +1,5 @@
+numpy 2.5.4, python 3.15.0
+expected tail: ['[[0, 1, 2], [1, 2, 3], [2, 3, 4]]', '(3, 3)', 'True', 'True', 'True']
+actual tail:   ['[[0, 1, 2], [1, 2, 3], [2, 3, 4]]', '(3, 3)', 'True', 'True', 'True']
+mutant '(a.size - window + 1, window)' -> '(a.size - window, window)' caught (exit code 0)
+mutant 'R[i] == a[i:i + w]' -> 'R[i] == a[i + 1:i + w + 1]' caught (exit code 0)

@@ -847,7 +847,7 @@ Z = np.arange(20)
 print(sliding_window_view(Z, window_shape=3).mean(axis=-1))
 ```
 #### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is  shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)
-`hint: from numpy.lib import stride_tricks, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib import stride_tricks, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0); both return views of the input, not copies`
 
 ```python
 # Author: Joe Kington / Erik Rigtorp
@@ -861,9 +861,29 @@ Z = rolling(np.arange(10), 3)
 print(Z)
 
 # Author: Jeff Luo (@Jeff1999)
+from numpy.lib.stride_tricks import sliding_window_view
 
 Z = np.arange(10)
 print(sliding_window_view(Z, window_shape=3))
+
+# Invariant: for a 1D array a of size n and a width w with 1 <= w <= n,
+# the result R has shape (n-w+1, w) and R[i, j] == a[i+j], so row i is a[i:i+w].
+# R is a view: it shares memory with a, so no data is copied.
+a = np.arange(5)
+R = rolling(a, 3)
+print(R.tolist())                                        # [[0, 1, 2], [1, 2, 3], [2, 3, 4]]
+print(R.shape)                                           # (3, 3)
+print(np.shares_memory(a, R))                            # True
+print(np.shares_memory(a, sliding_window_view(a, 3)))    # True
+
+# The invariant on the fixture plus bounded variations (n, w)
+ok = True
+for n, w in [(5, 3), (1, 1), (3, 3), (5, 2), (8, 4), (10, 1), (10, 10)]:
+    a = np.arange(n)
+    R = rolling(a, w)
+    ok = ok and R.shape == (n - w + 1, w)
+    ok = ok and all((R[i] == a[i:i + w]).all() for i in range(n - w + 1))
+print(ok)                                                # True
 ```
 #### 77. How to negate a boolean, or to change the sign of a float inplace? (★★★)
 `hint: np.logical_not, np.negative`
