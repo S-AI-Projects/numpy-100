@@ -500,6 +500,22 @@ Z = np.zeros(10, [ ('position', [ ('x', float),
                                   ('g', float),
                                   ('b', float)])])
 print(Z)
+
+# Nothing here is random, so no seed is needed: np.zeros always gives the same result.
+# Field names, nested:
+print(Z.dtype.names)                  # ('position', 'color')
+print(Z.dtype['position'].names)      # ('x', 'y')
+print(Z.dtype['color'].names)         # ('r', 'g', 'b')
+
+# Values on one record (record 0): write two fields, read three
+Z['position']['x'][0] = 1.5
+Z['color']['b'][0] = 0.25
+print(Z[0]['position']['x'], Z[0]['color']['b'], Z[0]['position']['y'])   # 1.5 0.25 0.0
+
+# Round trip through raw bytes keeps the dtype (names, types, offsets) and the values
+W = np.frombuffer(Z.tobytes(), dtype=Z.dtype)
+print(W.dtype == Z.dtype)                                 # True
+print(W[0]['position']['x'], W[0]['color']['b'])          # 1.5 0.25
 ```
 #### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)
 
