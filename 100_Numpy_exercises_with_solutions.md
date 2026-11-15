@@ -17,6 +17,14 @@ File automatically generated. See the documentation to update questions/answers/
 
 ```python
 import numpy as np
+
+print(np.__name__)           # numpy
+print(np.arange(3))          # [0 1 2]
+
+# Boundary: arange(0) is valid and gives an empty array, not an error.
+# Precondition: with the default step 1, the result is empty when stop <= 0.
+print(np.arange(0))          # []
+print(np.arange(0).shape)    # (0,)
 ```
 #### 2. Print the numpy version and the configuration (★☆☆)
 
