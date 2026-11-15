@@ -790,6 +790,22 @@ print(Z0)
 A = np.ones((5,5,3))
 B = 2*np.ones((5,5))
 print(A * B[:,:,None])
+
+# Small example: shape (2,2,3) times shape (2,2)
+A = np.ones((2,2,3))
+B = np.array([[1,2],[3,4]])
+print(B[:,:,None].shape)         # (2, 2, 1)   B with a trailing axis of size 1
+C = A * B[:,:,None]              # (2,2,3) * (2,2,1): the 1 is stretched to 3
+print(C.shape)                   # (2, 2, 3)
+print(C[0,1].tolist())           # [2.0, 2.0, 2.0]  all three channels of pixel (0,1) are scaled by B[0,1]
+print(C[1,0].tolist())           # [3.0, 3.0, 3.0]
+print(np.array_equal(C[:,:,0], B) and np.array_equal(C[:,:,2], B))   # True
+
+# Without the extra axis, (2,2) is matched against the last axis (size 3) and the shapes do not fit
+try:
+    A * B
+except ValueError:
+    print("shape mismatch")
 ```
 #### 72. How to swap two rows of an array? (★★★)
 

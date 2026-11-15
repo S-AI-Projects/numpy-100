@@ -189,7 +189,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 70. Consider the vector [1, 2, 3, 4, 5], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★)
 `hint: array[::4]`
 #### 71. Consider an array of dimension (5,5,3), how to multiply it by an array with dimensions (5,5)? (★★★)
-`hint: array[:, :, None]`
+`hint: array[:, :, None] (the trailing axis of size 1 is stretched to match the 3 channels)`
 #### 72. How to swap two rows of an array? (★★★)
 `hint: array[[]] = array[[]]`
 #### 73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the  triangles (★★★)
