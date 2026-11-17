@@ -437,9 +437,16 @@ print(T)
 `hint: argmax`
 
 ```python
-Z = np.random.random(10)
+# Reproducible example using dedicated generator to isolate state
+rng = np.random.default_rng(seed=0)
+Z = rng.random(10)
 Z[Z.argmax()] = 0
-print(Z)
+print((Z == 0).sum())
+
+# Tie policy test on [2, 7, 3, 7]: argmax returns first occurrence
+Z_tie = np.array([2, 7, 3, 7])
+Z_tie[Z_tie.argmax()] = 0
+print(Z_tie.tolist())
 ```
 #### 46. Create a structured array with `x` and `y` coordinates covering the [0,1]x[0,1] area (★★☆)
 `hint: np.meshgrid`
