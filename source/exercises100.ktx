@@ -256,6 +256,12 @@ color = np.dtype([("r", np.ubyte),
                   ("b", np.ubyte),
                   ("a", np.ubyte)])
 
+# Boundary case & record round trip:
+# Four uint8 fields, itemsize = 4 bytes; preserves [0, 128, 255, 64]
+rgba = np.array((0, 128, 255, 64), dtype=color)
+print(rgba.itemsize)
+print([int(rgba['r']), int(rgba['g']), int(rgba['b']), int(rgba['a'])])
+
 < q24
 Multiply a 5x3 matrix by a 3x2 matrix (real matrix product) (★☆☆)
 
