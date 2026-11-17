@@ -643,6 +643,19 @@ Z = np.random.uniform(0,1,10)
 z = 0.5
 m = Z.flat[np.abs(Z - z).argmin()]
 print(m)
+
+# Fixed target test: on [1, 4, 8] with target 5, nearest value is 4
+Z_fixed = np.array([1, 4, 8])
+target = 5
+nearest = Z_fixed.flat[np.abs(Z_fixed - target).argmin()]
+print(nearest)
+
+# Equidistant tie test: on [2, 4] with target 3, distances are equal (|2-3|=1, |4-3|=1)
+# argmin returns the first occurrence index
+Z_tie = np.array([2, 4])
+target_tie = 3
+tie_nearest = Z_tie.flat[np.abs(Z_tie - target_tie).argmin()]
+print(tie_nearest)
 ```
 #### 62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆)
 
