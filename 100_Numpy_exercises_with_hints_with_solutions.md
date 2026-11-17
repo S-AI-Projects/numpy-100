@@ -1256,6 +1256,14 @@ np.einsum('i->', A)       # np.sum(A)
 np.einsum('i,i->i', A, B) # A * B
 np.einsum('i,i', A, B)    # np.inner(A, B)
 np.einsum('i,j->ij', A, B)    # np.outer(A, B)
+
+# Concrete experiment on A=[1,2], B=[3,4]:
+A_fix = np.array([1, 2])
+B_fix = np.array([3, 4])
+print(int(np.einsum('i->', A_fix)))
+print(np.einsum('i,i->i', A_fix, B_fix).tolist())
+print(int(np.einsum('i,i', A_fix, B_fix)))
+print(np.einsum('i,j->ij', A_fix, B_fix).tolist())
 ```
 #### 98. Considering a path described by two vectors (X,Y), how to sample it using equidistant samples (★★★)?
 `hint: np.cumsum, np.interp`

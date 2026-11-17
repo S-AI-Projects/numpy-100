@@ -1,0 +1,5 @@
+numpy 2.5.5, python 3.15.0
+expected tail: ['3', '[3, 8]', '11', '[[3, 4], [6, 8]]']
+actual tail:   ['3', '[3, 8]', '11', '[[3, 4], [6, 8]]']
+mutant "np.einsum('i,j->ij', A_fix, B_fix)" -> "np.einsum('j,i->ij', A_fix, B_fix)" caught (exit code 0)
+mutant "np.einsum('i,i->i', A_fix, B_fix)" -> "np.einsum('i,i', A_fix, B_fix)" caught (exit code 0)
