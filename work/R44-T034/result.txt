@@ -1,0 +1,5 @@
+numpy 2.5.5, python 3.15.0
+expected tail: ['[-2, -1, 0, 1, 2]']
+actual tail:   ['[-2, -1, 0, 1, 2]']
+mutant 'np.ceil(np.abs(fix))' -> 'np.floor(np.abs(fix))' caught (exit code 0)
+mutant 'np.copysign(np.ceil(np.abs(fix)), fix)' -> 'np.ceil(fix)' caught (exit code 0)

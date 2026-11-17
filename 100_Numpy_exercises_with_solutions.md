@@ -282,6 +282,12 @@ print(np.copysign(np.ceil(np.abs(Z)), Z))
 
 # More readable but less efficient
 print(np.where(Z>0, np.ceil(Z), np.floor(Z)))
+
+# Invariant: rounds away from zero (sign preserved, magnitude ceiled)
+# [-1.2, -0.2, 0, 0.2, 1.2] rounds to [-2, -1, 0, 1, 2]
+fix = np.array([-1.2, -0.2, 0.0, 0.2, 1.2])
+res = np.copysign(np.ceil(np.abs(fix)), fix)
+print(res.astype(int).tolist())
 ```
 #### 30. How to find common values between two arrays? (★☆☆)
 
