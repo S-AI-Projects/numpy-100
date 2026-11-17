@@ -1274,6 +1274,17 @@ r[1:] = np.cumsum(dr)                # integrate path
 r_int = np.linspace(0, r.max(), 200) # regular spaced path
 x_int = np.interp(r_int, r, x)       # integrate path
 y_int = np.interp(r_int, r, y)
+
+# Step-by-step derivation on path (0,0) -> (2,0) -> (2,2)
+px = np.array([0.0, 2.0, 2.0])
+py = np.array([0.0, 0.0, 2.0])
+p_dr = np.sqrt(np.diff(px)**2 + np.diff(py)**2)
+p_r = np.zeros(len(px))
+p_r[1:] = np.cumsum(p_dr)
+s_d = np.array([0.0, 1.0, 2.0, 3.0, 4.0])
+sx = np.interp(s_d, p_r, px)
+sy = np.interp(s_d, p_r, py)
+print(list(zip(sx.astype(int).tolist(), sy.astype(int).tolist())))
 ```
 #### 99. Given an integer n and a 2D array X, select from X the rows which can be interpreted as draws from a multinomial distribution with n degrees, i.e., the rows which only contain integers and which sum to n. (★★★)
 
