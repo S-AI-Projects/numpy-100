@@ -24,6 +24,17 @@ import numpy as np
 ```python
 print(np.__version__)
 np.show_config()
+
+# Explanation & contract capture:
+# np.show_config() prints to stdout and returns None
+import io, sys
+buf = io.StringIO()
+old_stdout = sys.stdout
+sys.stdout = buf
+np.show_config()
+sys.stdout = old_stdout
+config_output = buf.getvalue()
+print(bool(config_output))
 ```
 #### 3. Create a null vector of size 10 (★☆☆)
 `hint: np.zeros`
