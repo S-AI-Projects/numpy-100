@@ -40,6 +40,12 @@ print("%d bytes" % (Z.size * Z.itemsize))
 # Simpler alternative
 print("%d bytes" % Z.nbytes)
 
+# Comparison: (2,3) int16 (itemsize 2) vs int64 (itemsize 8)
+a16 = np.zeros((2, 3), dtype=np.int16)
+a64 = np.zeros((2, 3), dtype=np.int64)
+print(a16.nbytes, a16.size * a16.itemsize)
+print(a64.nbytes, a64.size * a64.itemsize)
+
 < q5
 How to get the documentation of the numpy add function from the command line? (★☆☆)
 

@@ -1,0 +1,4 @@
+numpy 2.5.5, python 3.15.0
+expected tail: ['12 12', '48 48']
+actual tail:   ['12 12', '48 48']
+mutant 'a16.size * a16.itemsize' -> 'a16.size' caught (exit code 0)
