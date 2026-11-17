@@ -653,6 +653,13 @@ B = np.arange(3).reshape(1,3)
 it = np.nditer([A,B,None])
 for x,y,z in it: z[...] = x + y
 print(it.operands[2])
+
+# Broadcasting verification: (1,3) [1,2,3] and (3,1) [10,20,30] broadcast to [[11,12,13],[21,22,23],[31,32,33]]
+A_col = np.array([[10], [20], [30]])
+B_row = np.array([[1, 2, 3]])
+it_fix = np.nditer([A_col, B_row, None])
+for x, y, z in it_fix: z[...] = x + y
+print(it_fix.operands[2].tolist())
 ```
 #### 63. Create an array class that has a name attribute (★★☆)
 `hint: class method`
