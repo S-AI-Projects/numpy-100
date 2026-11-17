@@ -1,0 +1,5 @@
+numpy 2.5.5, python 3.15.0
+expected tail: ['4', '2']
+actual tail:   ['4', '2']
+mutant 'np.abs(Z_fixed - target).argmin()' -> '(Z_fixed - target).argmin()' caught (exit code 0)
+mutant 'Z_fixed.flat[np.abs(Z_fixed - target).argmin()]' -> 'Z_fixed.flat[np.abs(Z_fixed - target).argmax()]' caught (exit code 0)
