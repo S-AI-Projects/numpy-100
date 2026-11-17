@@ -696,6 +696,18 @@ X = [1,2,3,4,5,6]
 I = [1,3,9,3,4,1]
 F = np.bincount(I,X)
 print(F)
+
+# Comparison fixture: X=[2,3,4], I=[0,0,1], F accumulates to [5,4]
+X_fix = [2, 3, 4]
+I_fix = [0, 0, 1]
+# Method 1: np.bincount (allocates up to max(I) and weights)
+F_bincount = np.bincount(I_fix, weights=X_fix)
+print(F_bincount.astype(int).tolist())
+
+# Method 2: np.add.at (in-place unbuffered accumulation)
+F_addat = np.zeros(2, dtype=int)
+np.add.at(F_addat, I_fix, X_fix)
+print(F_addat.tolist())
 ```
 #### 66. Considering a (w,h,3) image of (dtype=ubyte), compute the number of unique colors (★★☆)
 `hint: np.unique`
