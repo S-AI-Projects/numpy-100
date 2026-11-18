@@ -627,6 +627,18 @@ print(Z[Z[:,1].argsort()])
 Z = np.random.randint(0,3,(3,10))
 print((~Z.any(axis=0)).any())
 
+# Concrete example: exactly one all-zero column (index 1)
+Z = np.array([[1,0,2],[3,0,4]])
+print(Z.any(axis=0))                   # [ True False  True]
+print(~Z.any(axis=0))                  # [False  True False]
+print(np.flatnonzero(~Z.any(axis=0)))  # [1]
+print((~Z.any(axis=0)).any())          # True
+
+# A column with only one zero is NOT null: column 2 is [0,5]
+Z = np.array([[1,0,0],[3,0,5]])
+print(np.flatnonzero(~Z.any(axis=0)))  # [1]    correct
+print(np.flatnonzero(~Z.all(axis=0)))  # [1 2]  wrong: all() also flags column 2
+
 # null : np.nan
 Z=np.array([
     [0,1,np.nan],

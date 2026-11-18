@@ -167,7 +167,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 59. How to sort an array by the nth column? (★★☆)
 `hint: argsort`
 #### 60. How to tell if a given 2D array has null columns? (★★☆)
-`hint: any, ~`
+`hint: any, ~ (a column is null only if `any` finds no non-zero value in it)`
 #### 61. Find the nearest value from a given value in an array (★★☆)
 `hint: np.abs, argmin, flat`
 #### 62. Considering two arrays with shape (1,3) and (3,1), how to compute their sum using an iterator? (★★☆)
