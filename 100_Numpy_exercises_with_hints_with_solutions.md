@@ -213,7 +213,7 @@ Z = np.ones((5,3)) @ np.ones((3,2))
 print(Z)
 ```
 #### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)
-`hint: >, <`
+`hint: >, < (a boolean mask selects the elements; `*=` writes the results back into the same array)`
 
 ```python
 # Author: Evgeni Burovski
@@ -221,6 +221,24 @@ print(Z)
 Z = np.arange(11)
 Z[(3 < Z) & (Z < 8)] *= -1
 print(Z)
+
+# What happens, step by step, for np.arange(10):
+Z = np.arange(10)
+mask = (3 < Z) & (Z < 8)
+print(mask.tolist())        # [False, False, False, False, True, True, True, True, False, False]
+print(Z[mask].tolist())     # [4, 5, 6, 7]   3 and 8 are not selected: both bounds are strict
+
+# The in-place update writes the new values back into Z itself (no new array is returned).
+alias = Z                   # a second name for the same array object
+before = Z.copy()           # an independent copy, kept for comparison
+Z[mask] *= -1
+print(Z.tolist())           # [0, 1, 2, 3, -4, -5, -6, -7, 8, 9]
+print(alias.tolist())       # the same list: alias is the same object, now mutated
+print(before.tolist())      # [0, 1, ..., 9] unchanged: a copy is independent
+print(Z is alias)           # True
+
+# Cost: one extra boolean array of the same length (the mask) and four elements rewritten in place
+print(mask.nbytes, Z.nbytes)    # 10 80   (1 byte per bool, 8 bytes per int64)
 ```
 #### 26. What is the output of the following script? (★☆☆)
 ```python
