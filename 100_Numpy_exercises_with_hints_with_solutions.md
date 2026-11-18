@@ -826,7 +826,7 @@ A = np.repeat(np.arange(len(C)), C)
 print(A)
 ```
 #### 75. How to compute averages using a sliding window over an array? (★★★)
-`hint: np.cumsum, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: np.cumsum, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0); the window n must satisfy 1 <= n <= len(a)`
 
 ```python
 # Author: Jaime Fernández del Río
@@ -845,6 +845,31 @@ from numpy.lib.stride_tricks import sliding_window_view
 
 Z = np.arange(20)
 print(sliding_window_view(Z, window_shape=3).mean(axis=-1))
+
+# Fixed example: the moving average of [1,2,3,4,5] with window 3 is [2,3,4]
+a = np.array([1, 2, 3, 4, 5])
+print(moving_average(a, n=3))              # [2. 3. 4.]
+print(moving_average(a, n=3).dtype)        # float64   the result is float even for integer input
+
+# Limits of the source function: it does not validate n.
+print(moving_average(a, n=10))             # []   a window larger than the array silently gives an empty result
+try:
+    moving_average(a, n=0)
+except ValueError:
+    print("n=0 raises ValueError")         # n=0 fails inside the function with a shape error
+
+# Policy used here: a window must satisfy 1 <= n <= len(a), otherwise raise ValueError
+def checked_moving_average(a, n=3):
+    if n < 1 or n > len(a):
+        raise ValueError("window must satisfy 1 <= n <= len(a)")
+    return moving_average(a, n)
+
+print(checked_moving_average(a, 3))        # [2. 3. 4.]
+for n in (0, 6):
+    try:
+        checked_moving_average(a, n)
+    except ValueError:
+        print("rejected", n)               # rejected 0, then rejected 6
 ```
 #### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is  shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)
 `hint: from numpy.lib import stride_tricks, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`

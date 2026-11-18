@@ -1,0 +1,5 @@
+numpy 2.5.4, python 3.15.0
+expected tail: ['[2. 3. 4.]', 'float64', '[]', 'n=0 raises ValueError', '[2. 3. 4.]', 'rejected 0', 'rejected 6']
+actual tail:   ['[2. 3. 4.]', 'float64', '[]', 'n=0 raises ValueError', '[2. 3. 4.]', 'rejected 0', 'rejected 6']
+mutant 'n > len(a)' -> 'n > len(a) + 5' caught (exit code 0)
+mutant 'ret[n - 1:] / n' -> 'ret[n:] / n' caught (exit code 0)
