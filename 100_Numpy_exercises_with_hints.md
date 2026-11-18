@@ -144,7 +144,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)
 `hint: argmin`
 #### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
-`hint: dtype`
+`hint: dtype (a structured dtype can nest: position and color are fields that hold their own fields)`
 #### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)
 `hint: np.atleast_2d, T, np.sqrt`
 #### 53. How to convert a float (32 bits) array into an integer (32 bits) array in place?
