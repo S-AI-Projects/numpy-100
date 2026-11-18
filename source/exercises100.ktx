@@ -607,12 +607,32 @@ for dtype in [np.float32, np.float64]:
 How to print all the values of an array? (★★☆)
 
 < h49
-hint: np.set_printoptions
+hint: np.set_printoptions (it changes global state, so restore it afterwards)
 
 < a49
-np.set_printoptions(threshold=float("inf"))
-Z = np.zeros((40,40))
-print(Z)
+old = np.get_printoptions()        # remember the options before changing them
+try:
+    np.set_printoptions(threshold=float("inf"))
+    Z = np.zeros((40,40))
+    print(Z)
+
+    # Fixed 100-element fixture. With threshold=50 it is summarised: [ 0  1  2 ... 97 98 99]
+    Z = np.arange(100)
+    np.set_printoptions(threshold=50)
+    summarised = str(Z)
+    # Method 2: pass the option for this one call only (global state is not touched)
+    method2 = np.array2string(Z, threshold=Z.size)
+    # Method 1 (source): change the global options, then print
+    np.set_printoptions(threshold=float("inf"))
+    method1 = str(Z)
+    # Same text, different work: method 1 changes state that every later print uses,
+    # method 2 passes the option as an argument and builds the string once.
+    print("..." in summarised)     # True
+    print("..." in method1)        # False
+    print(method1 == method2)      # True
+finally:
+    np.set_printoptions(**old)     # restores the options even if the code above fails
+print(np.get_printoptions() == old)   # True
 
 < q50
 How to find the closest value (to a given scalar) in a vector? (★★☆)

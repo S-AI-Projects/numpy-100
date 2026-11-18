@@ -140,7 +140,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 48. Print the minimum and maximum representable values for each numpy scalar type (★★☆)
 `hint: np.iinfo, np.finfo, eps`
 #### 49. How to print all the values of an array? (★★☆)
-`hint: np.set_printoptions`
+`hint: np.set_printoptions (it changes global state, so restore it afterwards)`
 #### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)
 `hint: argmin`
 #### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
