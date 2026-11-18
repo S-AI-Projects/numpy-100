@@ -142,7 +142,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 49. How to print all the values of an array? (★★☆)
 `hint: np.set_printoptions`
 #### 50. How to find the closest value (to a given scalar) in a vector? (★★☆)
-`hint: argmin`
+`hint: argmin (the closest value has the smallest absolute difference; on a tie argmin returns the first index)`
 #### 51. Create a structured array representing a position (x,y) and a color (r,g,b) (★★☆)
 `hint: dtype`
 #### 52. Consider a random vector with shape (100,2) representing coordinates, find point by point distances (★★☆)
