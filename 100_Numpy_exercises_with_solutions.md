@@ -1076,6 +1076,14 @@ print(S)
 # V is (p,n,1)
 # Thus, summing over the paired axes 0 and 0 (of M and V independently),
 # and 2 and 1, to remain with a (n,1) vector.
+
+# Boundary example: p=2, n=2 with two 2x2 identity matrices and vectors [[1],[2]], [[3],[4]].
+# Precondition: M.shape[0] == V.shape[0] (p batches) and M.shape[2] == V.shape[1] (inner matrix-vector product dim).
+M_boundary = np.array([np.eye(2), np.eye(2)])
+V_boundary = np.array([[[1], [2]], [[3], [4]]])
+S_boundary = np.tensordot(M_boundary, V_boundary, axes=[[0, 2], [0, 1]])
+assert S_boundary.shape == (2, 1)
+np.testing.assert_allclose(S_boundary, [[4], [6]])
 ```
 #### 87. Consider a 16x16 array, how to get the block-sum (block size is 4x4)? (★★★)
 
