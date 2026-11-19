@@ -1,0 +1,58 @@
+{
+  "exercise": 31,
+  "task": "R44-T003",
+  "description": "Comparison of np.seterr (global mutation) vs np.errstate (context manager)",
+  "method_comparison": {
+    "method_1": {
+      "name": "np.seterr",
+      "type": "Global state mutation",
+      "intermediate_representation": "Modifies global/thread-local error dictionary; requires manual restoration",
+      "exception_safe": false,
+      "fixture_ones_output": [
+        "inf"
+      ],
+      "fixture_arange_output": [
+        "nan",
+        "inf",
+        "inf"
+      ]
+    },
+    "method_2": {
+      "name": "np.errstate",
+      "type": "Context manager (RAII pattern)",
+      "intermediate_representation": "Context manager object saving pre-context policy and restoring via __exit__ in finally block",
+      "exception_safe": true,
+      "fixture_ones_output": [
+        "inf"
+      ],
+      "fixture_arange_output": [
+        "nan",
+        "inf",
+        "inf"
+      ]
+    }
+  },
+  "policy_restoration": {
+    "saved_policy": {
+      "divide": "warn",
+      "over": "warn",
+      "under": "ignore",
+      "invalid": "warn"
+    },
+    "policy_after_normal_exit": {
+      "divide": "warn",
+      "over": "warn",
+      "under": "ignore",
+      "invalid": "warn"
+    },
+    "policy_after_exception": {
+      "divide": "warn",
+      "over": "warn",
+      "under": "ignore",
+      "invalid": "warn"
+    },
+    "policies_match": true
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
