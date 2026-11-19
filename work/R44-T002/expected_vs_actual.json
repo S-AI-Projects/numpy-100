@@ -1,0 +1,58 @@
+{
+  "exercise": 86,
+  "task": "R44-T002",
+  "description": "Sum of p matrix products at once using np.tensordot",
+  "intermediate_values": {
+    "product_matrix_0": [
+      [
+        1.0
+      ],
+      [
+        2.0
+      ]
+    ],
+    "product_matrix_1": [
+      [
+        3.0
+      ],
+      [
+        4.0
+      ]
+    ],
+    "sum_formula": "[[1],[2]] + [[3],[4]] = [[4],[6]]"
+  },
+  "expected": {
+    "shape": [
+      2,
+      1
+    ],
+    "values": [
+      [
+        4.0
+      ],
+      [
+        6.0
+      ]
+    ]
+  },
+  "actual": {
+    "shape": [
+      2,
+      1
+    ],
+    "values": [
+      [
+        4.0
+      ],
+      [
+        6.0
+      ]
+    ]
+  },
+  "tolerances": {
+    "atol": 1e-07,
+    "rtol": 1e-07
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}

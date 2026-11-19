@@ -1,0 +1,76 @@
+{
+  "description": "Boundary case: p=2 matrices of shape 2x2 and p=2 vectors of shape 2x1",
+  "p": 2,
+  "n": 2,
+  "matrices_M": {
+    "description": "Two identity 2x2 matrices",
+    "shape": [
+      2,
+      2,
+      2
+    ],
+    "values": [
+      [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    ]
+  },
+  "vectors_V": {
+    "description": "Two column vectors [[1], [2]] and [[3], [4]]",
+    "shape": [
+      2,
+      2,
+      1
+    ],
+    "values": [
+      [
+        [
+          1.0
+        ],
+        [
+          2.0
+        ]
+      ],
+      [
+        [
+          3.0
+        ],
+        [
+          4.0
+        ]
+      ]
+    ]
+  },
+  "contraction_axes": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "preconditions": [
+    "M.shape[0] == V.shape[0] (p batches match)",
+    "M.shape[2] == V.shape[1] (inner matrix-vector product dimensions match)",
+    "Remaining axes (M.shape[1]=n, V.shape[2]=1) determine output shape (n, 1)"
+  ]
+}

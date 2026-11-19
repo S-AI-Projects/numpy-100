@@ -1,0 +1,11 @@
+TASK R44-T002 VERIFICATION SUMMARY
+===================================
+Source: source/exercises100.ktx (a86)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Boundary case verified: two identity 2x2 matrices with vectors [[1],[2]] and [[3],[4]]
+Output shape verified: (2, 1) == (2, 1)
+Summed product verified:
+[[4.0], [6.0]]
+Precondition verified: M.shape[0] == V.shape[0] and M.shape[2] == V.shape[1]
+Deliberate wrong result detection verified.
