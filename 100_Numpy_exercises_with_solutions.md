@@ -432,6 +432,15 @@ R = np.sqrt(X**2+Y**2)
 T = np.arctan2(Y,X)
 print(R)
 print(T)
+
+# Verification with Cartesian points (3,4), (0,1), (-1,0)
+# Expected polar coordinates: radii 5, 1, 1 and angles atan2(4,3), pi/2, pi
+Z = np.array([[3, 4], [0, 1], [-1, 0]])
+X, Y = Z[:, 0], Z[:, 1]
+R = np.sqrt(X**2 + Y**2)
+T = np.arctan2(Y, X)
+np.testing.assert_allclose(R, [5, 1, 1], atol=1e-7)
+np.testing.assert_allclose(T, [np.arctan2(4, 3), np.pi / 2, np.pi], atol=1e-7)
 ```
 #### 45. Create random vector of size 10 and replace the maximum value by 0 (★★☆)
 

@@ -1,0 +1,34 @@
+{
+  "description": "Cartesian test coordinates for exercise 44",
+  "points": [
+    {
+      "name": "Point 1",
+      "x": 3.0,
+      "y": 4.0
+    },
+    {
+      "name": "Point 2",
+      "x": 0.0,
+      "y": 1.0
+    },
+    {
+      "name": "Point 3",
+      "x": -1.0,
+      "y": 0.0
+    }
+  ],
+  "cartesian_matrix": [
+    [
+      3.0,
+      4.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      -1.0,
+      0.0
+    ]
+  ]
+}
