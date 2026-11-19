@@ -1,0 +1,10 @@
+TASK R44-T003 VERIFICATION SUMMARY
+===================================
+Source: source/exercises100.ktx (a31)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Method comparison verified on identical fixtures (ones/0 and arange/0)
+Intermediate representation differences explained (global state vs RAII context)
+np.geterr() policy restored after context exit: True
+np.geterr() policy restored after exception inside context: True
+Negative assertion tests verified.

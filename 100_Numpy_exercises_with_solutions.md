@@ -295,16 +295,35 @@ print(np.intersect1d(Z1,Z2))
 
 
 ```python
-# Suicide mode on
+# Method 1: Global state modification via np.seterr
 defaults = np.seterr(all="ignore")
 Z = np.ones(1) / 0
 
 # Back to sanity
 _ = np.seterr(**defaults)
 
-# Equivalently with a context manager
+# Method 2: Scoped context manager via np.errstate
 with np.errstate(all="ignore"):
     np.arange(3) / 0
+
+# Comparison on the same fixture (divide-by-zero):
+# Method 1 directly mutates the global thread-local configuration dictionary;
+# if an unhandled exception occurs before restoring, global state remains corrupted.
+# Method 2 uses a context manager that saves the policy and guarantees restoration
+# upon exit in a finally block, ensuring robust exception safety.
+saved_policy = np.geterr()
+with np.errstate(divide="ignore"):
+    Z_context = np.ones(1) / 0
+assert np.geterr() == saved_policy
+
+# Exception safety verification: policy restored even after an exception
+try:
+    with np.errstate(divide="ignore"):
+        _ = np.ones(1) / 0
+        raise ZeroDivisionError("simulated error inside context")
+except ZeroDivisionError:
+    pass
+assert np.geterr() == saved_policy
 ```
 #### 32. Is the following expressions true? (★☆☆)
 ```python

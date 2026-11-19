@@ -1,0 +1,29 @@
+{
+  "description": "Test fixtures for divide-by-zero warning suppression",
+  "fixtures": [
+    {
+      "name": "fixture_ones",
+      "expression": "np.ones(1) / 0.0",
+      "input_array": [
+        1.0
+      ],
+      "divisor": 0.0
+    },
+    {
+      "name": "fixture_arange",
+      "expression": "np.arange(3) / 0.0",
+      "input_array": [
+        0,
+        1,
+        2
+      ],
+      "divisor": 0.0
+    }
+  ],
+  "initial_error_policy": {
+    "divide": "warn",
+    "over": "warn",
+    "under": "ignore",
+    "invalid": "warn"
+  }
+}
