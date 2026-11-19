@@ -1,0 +1,80 @@
+{
+  "exercise": 44,
+  "description": "Conversion from Cartesian (X, Y) to Polar (R, T)",
+  "inputs": [
+    [
+      3.0,
+      4.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      -1.0,
+      0.0
+    ]
+  ],
+  "intermediate_values": {
+    "X": [
+      3.0,
+      0.0,
+      -1.0
+    ],
+    "Y": [
+      4.0,
+      1.0,
+      0.0
+    ],
+    "X_squared": [
+      9.0,
+      0.0,
+      1.0
+    ],
+    "Y_squared": [
+      16.0,
+      1.0,
+      0.0
+    ],
+    "sum_of_squares": [
+      25.0,
+      1.0,
+      1.0
+    ]
+  },
+  "expected": {
+    "radii": [
+      5.0,
+      1.0,
+      1.0
+    ],
+    "angles_radians": [
+      0.9272952180016122,
+      1.5707963267948966,
+      3.141592653589793
+    ],
+    "angle_symbolic": [
+      "atan2(4, 3)",
+      "pi/2",
+      "pi"
+    ]
+  },
+  "actual": {
+    "radii": [
+      5.0,
+      1.0,
+      1.0
+    ],
+    "angles_radians": [
+      0.9272952180016122,
+      1.5707963267948966,
+      3.141592653589793
+    ]
+  },
+  "tolerances": {
+    "atol": 1e-07,
+    "rtol": 1e-07
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
