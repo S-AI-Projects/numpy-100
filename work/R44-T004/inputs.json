@@ -1,0 +1,70 @@
+{
+  "description": "Fixture and 6 bounded variations testing NamedArray slicing and copying invariant",
+  "invariant_definition": "For any NamedArray A with name N, any derived slice A[slice] or copy A.copy() remains an instance of NamedArray and preserves its name attribute (A.name == N) via __array_finalize__.",
+  "cases": [
+    {
+      "case_name": "Fixture: 1D Range Array",
+      "input_shape": [
+        10
+      ],
+      "input_dtype": "int64",
+      "name": "range_10",
+      "slice_indexer": "slice(2, 5, None)"
+    },
+    {
+      "case_name": "Variation 1: 2D Float Matrix",
+      "input_shape": [
+        4,
+        4
+      ],
+      "input_dtype": "float64",
+      "name": "float_matrix_4x4",
+      "slice_indexer": "(slice(0, 2, None), slice(1, 3, None))"
+    },
+    {
+      "case_name": "Variation 2: Empty Array",
+      "input_shape": [
+        0
+      ],
+      "input_dtype": "int64",
+      "name": "empty_vector",
+      "slice_indexer": "slice(None, None, None)"
+    },
+    {
+      "case_name": "Variation 3: Single Element",
+      "input_shape": [
+        1
+      ],
+      "input_dtype": "int64",
+      "name": "singleton_42",
+      "slice_indexer": "slice(0, 1, None)"
+    },
+    {
+      "case_name": "Variation 4: Default Name",
+      "input_shape": [
+        3
+      ],
+      "input_dtype": "int64",
+      "name": "no name",
+      "slice_indexer": "slice(1, None, None)"
+    },
+    {
+      "case_name": "Variation 5: Boolean Array",
+      "input_shape": [
+        4
+      ],
+      "input_dtype": "bool",
+      "name": "bool_mask",
+      "slice_indexer": "slice(None, None, 2)"
+    },
+    {
+      "case_name": "Variation 6: Reverse-strided Slice",
+      "input_shape": [
+        6
+      ],
+      "input_dtype": "int64",
+      "name": "reversed_series",
+      "slice_indexer": "slice(None, None, -1)"
+    }
+  ]
+}

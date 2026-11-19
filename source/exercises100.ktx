@@ -845,6 +845,12 @@ class NamedArray(np.ndarray):
 Z = NamedArray(np.arange(10), "range_10")
 print (Z.name)
 
+# Invariant: the 'name' attribute survives both slicing and copying via __array_finalize__
+Z_slice = Z[2:5]
+Z_copy = Z.copy()
+assert isinstance(Z_slice, NamedArray) and Z_slice.name == Z.name
+assert isinstance(Z_copy, NamedArray) and Z_copy.name == Z.name
+
 < q64
 Consider a given vector, how to add 1 to each element indexed by a second vector (be careful with repeated indices)? (★★★)
 

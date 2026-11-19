@@ -1,0 +1,8 @@
+TASK R44-T004 VERIFICATION SUMMARY
+===================================
+Source: source/exercises100.ktx (a63)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Tested fixture + 6 variations (total 7 cases).
+Confirmed: Name survives both slicing (views) and copying (explicit copies).
+Deliberate failure detection verified.
