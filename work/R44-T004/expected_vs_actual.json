@@ -1,0 +1,155 @@
+{
+  "exercise": 63,
+  "task": "R44-T004",
+  "description": "NamedArray name preservation across view casting (slicing) and copying",
+  "total_cases_tested": 7,
+  "results": [
+    {
+      "case_name": "Fixture: 1D Range Array",
+      "input_shape": [
+        10
+      ],
+      "input_dtype": "int64",
+      "original_name": "range_10",
+      "slice_indexer": "slice(2, 5, None)",
+      "slice_shape": [
+        3
+      ],
+      "slice_name": "range_10",
+      "slice_name_survived": true,
+      "copy_shape": [
+        10
+      ],
+      "copy_name": "range_10",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 1: 2D Float Matrix",
+      "input_shape": [
+        4,
+        4
+      ],
+      "input_dtype": "float64",
+      "original_name": "float_matrix_4x4",
+      "slice_indexer": "(slice(0, 2, None), slice(1, 3, None))",
+      "slice_shape": [
+        2,
+        2
+      ],
+      "slice_name": "float_matrix_4x4",
+      "slice_name_survived": true,
+      "copy_shape": [
+        4,
+        4
+      ],
+      "copy_name": "float_matrix_4x4",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 2: Empty Array",
+      "input_shape": [
+        0
+      ],
+      "input_dtype": "int64",
+      "original_name": "empty_vector",
+      "slice_indexer": "slice(None, None, None)",
+      "slice_shape": [
+        0
+      ],
+      "slice_name": "empty_vector",
+      "slice_name_survived": true,
+      "copy_shape": [
+        0
+      ],
+      "copy_name": "empty_vector",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 3: Single Element",
+      "input_shape": [
+        1
+      ],
+      "input_dtype": "int64",
+      "original_name": "singleton_42",
+      "slice_indexer": "slice(0, 1, None)",
+      "slice_shape": [
+        1
+      ],
+      "slice_name": "singleton_42",
+      "slice_name_survived": true,
+      "copy_shape": [
+        1
+      ],
+      "copy_name": "singleton_42",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 4: Default Name",
+      "input_shape": [
+        3
+      ],
+      "input_dtype": "int64",
+      "original_name": "no name",
+      "slice_indexer": "slice(1, None, None)",
+      "slice_shape": [
+        2
+      ],
+      "slice_name": "no name",
+      "slice_name_survived": true,
+      "copy_shape": [
+        3
+      ],
+      "copy_name": "no name",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 5: Boolean Array",
+      "input_shape": [
+        4
+      ],
+      "input_dtype": "bool",
+      "original_name": "bool_mask",
+      "slice_indexer": "slice(None, None, 2)",
+      "slice_shape": [
+        2
+      ],
+      "slice_name": "bool_mask",
+      "slice_name_survived": true,
+      "copy_shape": [
+        4
+      ],
+      "copy_name": "bool_mask",
+      "copy_name_survived": true,
+      "passed": true
+    },
+    {
+      "case_name": "Variation 6: Reverse-strided Slice",
+      "input_shape": [
+        6
+      ],
+      "input_dtype": "int64",
+      "original_name": "reversed_series",
+      "slice_indexer": "slice(None, None, -1)",
+      "slice_shape": [
+        6
+      ],
+      "slice_name": "reversed_series",
+      "slice_name_survived": true,
+      "copy_shape": [
+        6
+      ],
+      "copy_name": "reversed_series",
+      "copy_name_survived": true,
+      "passed": true
+    }
+  ],
+  "name_survives_slicing": true,
+  "name_survives_copying": true,
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
