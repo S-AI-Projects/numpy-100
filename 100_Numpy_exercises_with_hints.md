@@ -106,7 +106,7 @@ np.array([np.nan]).astype(int).astype(float)
 ```python
 np.sqrt(-1) == np.emath.sqrt(-1)
 ```
-`hint: imaginary number`
+`hint: imaginary number, domain error policy (NaN vs complex), and IEEE 754 NaN comparison`
 #### 33. How to get the dates of yesterday, today and tomorrow? (★☆☆)
 `hint: np.datetime64, np.timedelta64`
 #### 34. How to get all the dates corresponding to the month of July 2016? (★★☆)

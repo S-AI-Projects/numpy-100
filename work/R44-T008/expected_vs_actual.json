@@ -1,0 +1,51 @@
+{
+  "exercise": 32,
+  "task": "R44-T008",
+  "scalar_comparison": {
+    "real_sqrt": {
+      "value": "NaN",
+      "dtype": "float64",
+      "is_nan": true,
+      "warning_emitted": "RuntimeWarning: invalid value encountered in sqrt"
+    },
+    "emath_sqrt": {
+      "value": "1j",
+      "dtype": "complex128",
+      "warning_emitted": null
+    },
+    "equality_comparison": {
+      "expression": "np.sqrt(-1) == np.emath.sqrt(-1)",
+      "actual_result": false,
+      "expected_result": false,
+      "explanation": "NaN != 1j under IEEE 754 and NumPy comparison semantics."
+    }
+  },
+  "misconception_remediation": {
+    "explicit_complex_input": "-1+0j",
+    "expression": "np.sqrt(-1+0j) == 1j",
+    "result": true,
+    "dtype": "complex128"
+  },
+  "total_array_operation_contrast": {
+    "input": [
+      -1.0,
+      4.0
+    ],
+    "real_sqrt_result": [
+      null,
+      2.0
+    ],
+    "real_sqrt_dtype": "float64",
+    "emath_sqrt_result": [
+      "1j",
+      "(2+0j)"
+    ],
+    "emath_sqrt_dtype": "complex128",
+    "elementwise_equality": [
+      false,
+      true
+    ]
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
