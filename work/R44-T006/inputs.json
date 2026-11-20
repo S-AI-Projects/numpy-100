@@ -1,0 +1,22 @@
+{
+  "description": "Fixture [[10,20],[30,40]] for testing multidimensional enumeration",
+  "input_matrix": [
+    [
+      10,
+      20
+    ],
+    [
+      30,
+      40
+    ]
+  ],
+  "shape": [
+    2,
+    2
+  ],
+  "dtype": "int64",
+  "operations_compared": [
+    "np.ndenumerate(Z): Multidimensional index iterator yielding ((coordinate_tuple), value)",
+    "np.ndindex(Z.shape): Coordinate tuple iterator yielding (coordinate_tuple), indexed as Z[index]"
+  ]
+}
