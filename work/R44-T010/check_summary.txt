@@ -1,0 +1,14 @@
+TASK R44-T010 VERIFICATION SUMMARY
+===================================
+Item: NumPy exercise 11
+Source: source/exercises100.ktx (a11, h11)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Identity invariants verified:
+  - Shape: (3, 3)
+  - Main diagonal: [1, 1, 1]
+  - Sum: 3.0
+  - Off-diagonal elements: all 0.0
+Mutation testing verified:
+  - One-operation mutants (np.ones, np.eye(3, k=1), corrupted off-diagonal) distinguished and caught.
+Deliberate failure detection verified.

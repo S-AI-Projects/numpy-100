@@ -1,0 +1,41 @@
+{
+  "exercise": 11,
+  "task": "R44-T010",
+  "actual_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "shape": [
+    3,
+    3
+  ],
+  "diagonal": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "total_sum": 3.0,
+  "off_diagonal_zeros_count": 6,
+  "invariants_passed": true,
+  "mutation_testing": {
+    "mutant_ones_caught": true,
+    "mutant_shifted_caught": true,
+    "mutant_corrupt_caught": true,
+    "all_mutants_distinguished": true
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
