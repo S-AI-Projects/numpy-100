@@ -1,0 +1,16 @@
+{
+  "scalar_real_input": -1,
+  "scalar_complex_input": "-1+0j",
+  "array_real_input": [
+    -1.0,
+    4.0
+  ],
+  "default_error_policy": {
+    "divide": "warn",
+    "over": "warn",
+    "under": "ignore",
+    "invalid": "warn"
+  },
+  "code_investigated": "np.sqrt(-1) == np.emath.sqrt(-1)",
+  "source_contract": "np.sqrt computes real square root over the non-negative real domain. Under the default error policy (invalid='warn'), negative real inputs emit a RuntimeWarning and produce np.nan (dtype float64), preserving the real dtype. np.emath.sqrt automatically extends real inputs to the complex domain when x < 0, returning 1j (dtype complex128) without warning. Under IEEE 754 and NumPy semantics, NaN is unequal to everything (including itself), so np.nan == 1j evaluates to False."
+}

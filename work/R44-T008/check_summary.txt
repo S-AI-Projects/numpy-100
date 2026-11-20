@@ -1,0 +1,13 @@
+TASK R44-T008 VERIFICATION SUMMARY
+===================================
+Item: NumPy exercise 32
+Source: source/exercises100.ktx (a32, h32)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Contracts verified:
+  - np.sqrt(-1) emits RuntimeWarning and returns NaN (float64) under documented error policy.
+  - np.emath.sqrt(-1) extends domain to complex returning 1j (complex128).
+  - np.sqrt(-1) == np.emath.sqrt(-1) evaluates to False (NaN is unequal to any value).
+  - Misconception remediation: np.sqrt(-1+0j) == 1j verified.
+  - Total array contrast on [-1.0, 4.0] verified for types, shapes, and values.
+Deliberate failure detection verified.

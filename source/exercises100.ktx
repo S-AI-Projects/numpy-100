@@ -392,10 +392,44 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 ```
 
 < h32
-hint: imaginary number
+hint: imaginary number, domain error policy (NaN vs complex), and IEEE 754 NaN comparison
 
 < a32
-np.sqrt(-1) == np.emath.sqrt(-1)
+# The expression evaluates to False:
+print(np.sqrt(-1) == np.emath.sqrt(-1))
+
+# Explanation:
+# 1. np.sqrt(-1): Real ufunc contract preserves real float dtype and does not auto-promote
+#    negative real inputs to complex numbers. Under NumPy's documented error policy
+#    (np.geterr()['invalid'] == 'warn'), it emits a RuntimeWarning and returns IEEE 754 NaN (float64).
+# 2. np.emath.sqrt(-1): Domain-extending wrapper (scimath) branches to the complex domain for
+#    negative real inputs, returning 1j (0.0 + 1.0j, dtype complex128) without warning.
+# 3. Why they are not equal: np.nan == 1j evaluates to False. Under IEEE 754 and NumPy semantics,
+#    NaN compares unequal to everything, including any complex value and itself (np.nan == np.nan is False).
+
+# Verification of values, types, and documented error policy:
+with np.errstate(invalid='ignore'):
+    real_sqrt = np.sqrt(-1)
+emath_sqrt = np.emath.sqrt(-1)
+
+assert np.isnan(real_sqrt) and isinstance(real_sqrt, (float, np.floating))
+assert emath_sqrt == 1j and isinstance(emath_sqrt, (complex, np.complexfloating))
+assert not (real_sqrt == emath_sqrt)
+
+# Common misconception & unsupported case:
+# Assuming np.sqrt automatically handles negative reals as complex numbers.
+# To compute 1j using np.sqrt, the caller must explicitly provide a complex input or dtype:
+assert np.sqrt(-1 + 0j) == 1j
+
+# Type / shape contrast on a total array operation:
+# Applying both functions to an array with negative and positive values [-1.0, 4.0]:
+with np.errstate(invalid='ignore'):
+    arr_real = np.sqrt(np.array([-1.0, 4.0]))        # array([nan, 2.0]), dtype float64
+arr_emath = np.emath.sqrt(np.array([-1.0, 4.0]))    # array([0.+1.j, 2.+0.j]), dtype complex128
+
+assert arr_real.dtype == np.float64 and np.isnan(arr_real[0]) and arr_real[1] == 2.0
+assert arr_emath.dtype == np.complex128 and arr_emath[0] == 1j and arr_emath[1] == (2.0 + 0j)
+assert np.array_equal(arr_real == arr_emath, [False, True])
 
 < q33
 How to get the dates of yesterday, today and tomorrow? (★☆☆)
