@@ -1,0 +1,147 @@
+{
+  "exercise": 55,
+  "task": "R44-T006",
+  "description": "Clarify multidimensional array enumeration with np.ndenumerate and np.ndindex",
+  "input_matrix": [
+    [
+      10,
+      20
+    ],
+    [
+      30,
+      40
+    ]
+  ],
+  "expected_enumeration": [
+    {
+      "index": [
+        0,
+        0
+      ],
+      "value": 10
+    },
+    {
+      "index": [
+        0,
+        1
+      ],
+      "value": 20
+    },
+    {
+      "index": [
+        1,
+        0
+      ],
+      "value": 30
+    },
+    {
+      "index": [
+        1,
+        1
+      ],
+      "value": 40
+    }
+  ],
+  "actual_ndenumerate": [
+    {
+      "index": [
+        0,
+        0
+      ],
+      "value": 10
+    },
+    {
+      "index": [
+        0,
+        1
+      ],
+      "value": 20
+    },
+    {
+      "index": [
+        1,
+        0
+      ],
+      "value": 30
+    },
+    {
+      "index": [
+        1,
+        1
+      ],
+      "value": 40
+    }
+  ],
+  "actual_ndindex": [
+    {
+      "index": [
+        0,
+        0
+      ],
+      "value": 10
+    },
+    {
+      "index": [
+        0,
+        1
+      ],
+      "value": 20
+    },
+    {
+      "index": [
+        1,
+        0
+      ],
+      "value": 30
+    },
+    {
+      "index": [
+        1,
+        1
+      ],
+      "value": 40
+    }
+  ],
+  "intermediate_step_breakdown": [
+    {
+      "step": 1,
+      "coord": [
+        0,
+        0
+      ],
+      "value": 10,
+      "explanation": "Row 0, Column 0"
+    },
+    {
+      "step": 2,
+      "coord": [
+        0,
+        1
+      ],
+      "value": 20,
+      "explanation": "Row 0, Column 1"
+    },
+    {
+      "step": 3,
+      "coord": [
+        1,
+        0
+      ],
+      "value": 30,
+      "explanation": "Row 1, Column 0"
+    },
+    {
+      "step": 4,
+      "coord": [
+        1,
+        1
+      ],
+      "value": 40,
+      "explanation": "Row 1, Column 1"
+    }
+  ],
+  "ndenumerate_matches_expected": true,
+  "ndindex_matches_expected": true,
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}

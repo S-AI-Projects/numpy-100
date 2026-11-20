@@ -560,6 +560,15 @@ for index, value in np.ndenumerate(Z):
     print(index, value)
 for index in np.ndindex(Z.shape):
     print(index, Z[index])
+
+# Clarification & verification on fixture [[10,20],[30,40]]:
+# np.ndenumerate yields coordinate tuples paired with values: ((i,j), value)
+# np.ndindex generates the coordinate tuples corresponding to the array shape
+Z_example = np.array([[10, 20], [30, 40]])
+enum_res = list(np.ndenumerate(Z_example))
+expected_enum = [((0, 0), 10), ((0, 1), 20), ((1, 0), 30), ((1, 1), 40)]
+assert enum_res == expected_enum
+assert [(idx, Z_example[idx]) for idx in np.ndindex(Z_example.shape)] == expected_enum
 ```
 #### 56. Generate a generic 2D Gaussian-like array (★★☆)
 `hint: np.meshgrid, np.exp`
