@@ -1,0 +1,30 @@
+{
+  "description": "Normalization fixture [[1,2],[3,4]] and constant array [[5,5],[5,5]]",
+  "fixtures": {
+    "standard_matrix": [
+      [
+        1.0,
+        2.0
+      ],
+      [
+        3.0,
+        4.0
+      ]
+    ],
+    "constant_matrix": [
+      [
+        5.0,
+        5.0
+      ],
+      [
+        5.0,
+        5.0
+      ]
+    ]
+  },
+  "reproducibility": {
+    "method": "Save and restore np.random.get_state() around local seed usage",
+    "seed": 0
+  },
+  "constant_array_policy": "When std == 0 (zero variance), dividing by std produces 0/0 (NaN). Policy: return np.zeros_like(array) to maintain centered mean=0 without NaN corruption."
+}

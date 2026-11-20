@@ -240,9 +240,28 @@ Normalize a 5x5 random matrix (★☆☆)
 hint: (x -mean)/std
 
 < a22
+# Save process-global RNG state to avoid leaking side-effects
+state = np.random.get_state()
+np.random.seed(0)
 Z = np.random.random((5,5))
+# Restore process-global RNG setting immediately after use
+np.random.set_state(state)
+
 Z = (Z - np.mean (Z)) / (np.std (Z))
 print(Z)
+
+# Verification on deterministic fixture [[1,2],[3,4]]
+X = np.array([[1, 2], [3, 4]], dtype=float)
+Z_norm = (X - np.mean(X)) / np.std(X)
+np.testing.assert_allclose(np.mean(Z_norm), 0.0, atol=1e-7)
+np.testing.assert_allclose(np.std(Z_norm), 1.0, atol=1e-7)
+
+# Constant-array policy: when std == 0, division by zero yields NaN unless guarded;
+# policy returns zeros_like to maintain centered mean=0 without NaN.
+C = np.full((2, 2), 5.0)
+s = np.std(C)
+Z_const = np.zeros_like(C) if s == 0 else (C - np.mean(C)) / s
+assert np.all(Z_const == 0)
 
 < q23
 Create a custom dtype that describes a color as four unsigned bytes (RGBA) (★☆☆)
