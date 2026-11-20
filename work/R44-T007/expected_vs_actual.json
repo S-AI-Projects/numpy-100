@@ -1,0 +1,216 @@
+{
+  "exercise": 88,
+  "task": "R44-T007",
+  "description": "Conway's Game of Life step-by-step blinker oscillator derivation",
+  "grid_size": [
+    5,
+    5
+  ],
+  "gen0_horizontal": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "step_1_intermediate": {
+    "neighbor_matrix_N": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "birth_cells": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "survive_cells": [
+      [
+        1,
+        1
+      ]
+    ],
+    "gen1_vertical_actual": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "gen1_vertical_expected": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "matches_expected": true
+  },
+  "step_2_intermediate": {
+    "neighbor_matrix_N": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        3
+      ],
+      [
+        2,
+        1,
+        2
+      ]
+    ],
+    "gen2_horizontal_actual": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "matches_initial_gen0": true
+  },
+  "period_2_oscillation_verified": true,
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}

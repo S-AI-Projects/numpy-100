@@ -1,0 +1,59 @@
+{
+  "description": "5x5 grid with centered horizontal blinker oscillator (period 2)",
+  "grid_shape": [
+    5,
+    5
+  ],
+  "initial_state_gen0": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "live_cell_coordinates_gen0": [
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "simultaneous_update_mechanism": "Shifted 2D slice views over 8 directions compute neighbor matrix N before modifying grid state, ensuring true simultaneous cellular automaton updates."
+}
