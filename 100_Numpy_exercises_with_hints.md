@@ -195,7 +195,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 73. Consider a set of 10 triplets describing 10 triangles (with shared vertices), find the set of unique line segments composing all the  triangles (★★★)
 `hint: repeat, np.roll, np.sort, view, np.unique`
 #### 74. Given a sorted array C that corresponds to a bincount, how to produce an array A such that np.bincount(A) == C? (★★★)
-`hint: np.repeat`
+`hint: np.repeat, np.arange, np.bincount(..., minlength=)`
 #### 75. How to compute averages using a sliding window over an array? (★★★)
 `hint: np.cumsum, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
 #### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is  shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)

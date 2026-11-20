@@ -1,0 +1,32 @@
+{
+  "counts_fixture": [
+    2,
+    0,
+    3
+  ],
+  "indices_fixture": [
+    0,
+    1,
+    2
+  ],
+  "original_code_input": [
+    1,
+    1,
+    2,
+    3,
+    4,
+    4,
+    6
+  ],
+  "trailing_zero_fixture": [
+    2,
+    0,
+    3,
+    0
+  ],
+  "resource_contract": {
+    "time_complexity": "O(K + N) where K = len(C) and N = sum(C)",
+    "space_complexity": "O(N) for output array, O(K) for indices",
+    "memory_behavior": "np.repeat always allocates a new contiguous copy (A.base is None, shares_memory is False)"
+  }
+}
