@@ -1123,6 +1123,23 @@ def iterate(Z):
 Z = np.random.randint(0,2,(50,50))
 for i in range(100): Z = iterate(Z)
 print(Z)
+
+# Step-by-step derivation on a centered blinker (period-2 oscillator on 5x5 grid):
+# Gen 0 (horizontal): live cells at (2,1), (2,2), (2,3)
+blinker = np.zeros((5, 5), dtype=int)
+blinker[2, 1:4] = 1
+initial_blinker = blinker.copy()
+
+# Step 1: Compute neighbor count N on 3x3 inner window; cells (1,2) and (3,2) have N==3 (birth),
+# center (2,2) has N==2 (survive), ends (2,1) and (2,3) have N==1 (die of underpopulation).
+gen1 = iterate(blinker.copy())
+expected_gen1 = np.zeros((5, 5), dtype=int)
+expected_gen1[1:4, 2] = 1  # Vertical blinker
+assert np.array_equal(gen1, expected_gen1)
+
+# Step 2: Second generation restores horizontal orientation by 90-degree rotational symmetry.
+gen2 = iterate(gen1.copy())
+assert np.array_equal(gen2, initial_blinker)
 ```
 #### 89. How to get the n largest values of an array (★★★)
 `hint: np.argsort | np.argpartition`
