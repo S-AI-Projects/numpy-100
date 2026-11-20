@@ -91,6 +91,16 @@ print(nz)
 ```python
 Z = np.eye(3)
 print(Z)
+
+# Explanatory improvement & regression protection invariants:
+# A valid 3x3 identity matrix I_3 satisfies:
+# 1. Main diagonal elements are all 1: np.diag(Z) == [1, 1, 1]
+# 2. Total element sum equals the dimension: np.sum(Z) == 3
+# 3. All off-diagonal elements are 0: Z[~np.eye(3, dtype=bool)] == 0
+assert Z.shape == (3, 3)
+assert np.array_equal(np.diag(Z), [1, 1, 1])
+assert np.sum(Z) == 3.0
+assert np.all(Z[~np.eye(3, dtype=bool)] == 0)
 ```
 #### 12. Create a 3x3x3 array with random values (★☆☆)
 

@@ -33,7 +33,7 @@ File automatically generated. See the documentation to update questions/answers/
 #### 10. Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)
 `hint: np.nonzero`
 #### 11. Create a 3x3 identity matrix (★☆☆)
-`hint: np.eye`
+`hint: np.eye, np.identity`
 #### 12. Create a 3x3x3 array with random values (★☆☆)
 `hint: np.random.random`
 #### 13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)

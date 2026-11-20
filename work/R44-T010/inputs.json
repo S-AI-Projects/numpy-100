@@ -1,0 +1,35 @@
+{
+  "function": "np.eye",
+  "dimension": 3,
+  "input_call": "np.eye(3)",
+  "invariants_tested": {
+    "shape": [
+      3,
+      3
+    ],
+    "diagonal": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "sum": 3.0,
+    "off_diagonal_zeros": true
+  },
+  "mutants_evaluated": [
+    {
+      "mutant_id": "mutant_ones",
+      "operation": "np.ones((3, 3))",
+      "expected_failure": "sum and off-diagonal invariants"
+    },
+    {
+      "mutant_id": "mutant_shifted",
+      "operation": "np.eye(3, k=1)",
+      "expected_failure": "diagonal and sum invariants"
+    },
+    {
+      "mutant_id": "mutant_corrupt",
+      "operation": "np.eye(3); Z[0, 1] = 1.0",
+      "expected_failure": "off-diagonal invariant"
+    }
+  ]
+}
