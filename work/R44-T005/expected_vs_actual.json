@@ -1,0 +1,67 @@
+{
+  "exercise": 22,
+  "task": "R44-T005",
+  "description": "Matrix normalization (x - mean) / std and constant array policy",
+  "standard_fixture_normalization": {
+    "input": [
+      [
+        1.0,
+        2.0
+      ],
+      [
+        3.0,
+        4.0
+      ]
+    ],
+    "intermediate_mean": 2.5,
+    "intermediate_std": 1.118033988749895,
+    "normalized_matrix": [
+      [
+        -1.3416407864998738,
+        -0.4472135954999579
+      ],
+      [
+        0.4472135954999579,
+        1.3416407864998738
+      ]
+    ],
+    "resulting_mean": 0.0,
+    "resulting_std": 1.0,
+    "expected_mean": 0.0,
+    "expected_std": 1.0,
+    "tolerances": {
+      "atol": 1e-07,
+      "rtol": 1e-07
+    },
+    "mean_close_to_zero": true,
+    "std_close_to_one": true
+  },
+  "constant_array_test": {
+    "input": [
+      [
+        5.0,
+        5.0
+      ],
+      [
+        5.0,
+        5.0
+      ]
+    ],
+    "mean": 5.0,
+    "std": 0.0,
+    "policy_result": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "policy_std_zero_handled_without_nan": true
+  },
+  "rng_state_restored": true,
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}
