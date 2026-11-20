@@ -824,6 +824,27 @@ print(G)
 C = np.bincount([1,1,2,3,4,4,6])
 A = np.repeat(np.arange(len(C)), C)
 print(A)
+
+# Resource behavior (time/space and copy/view):
+# 1. Memory / Copy contract: np.repeat always allocates and returns a new contiguous array (copy, not a view).
+#    A.base is None and np.shares_memory(A, np.arange(len(C))) is False.
+# 2. Complexity:
+#    - Time: O(K + N) where K = len(C) = max(original_values)+1 and N = sum(C) is the reconstructed length.
+#    - Space: O(K) temporary space for index array np.arange(K) and O(N) space for reconstructed output A.
+# 3. Round-trip contract & trailing zero limitation:
+#    For counts C = [2, 0, 3], np.repeat(np.arange(3), [2, 0, 3]) reconstructs [0, 0, 2, 2, 2].
+#    Calling np.bincount(A, minlength=len(C)) guarantees returning the original counts [2, 0, 3]
+#    even if trailing bins are zero.
+
+# Demonstration with fixture C = [2, 0, 3]:
+C_fixture = np.array([2, 0, 3])
+idx_fixture = np.arange(len(C_fixture))
+A_fixture = np.repeat(idx_fixture, C_fixture)
+
+assert np.array_equal(A_fixture, [0, 0, 2, 2, 2])
+assert np.bincount(A_fixture, minlength=len(C_fixture)).tolist() == [2, 0, 3]
+assert np.shares_memory(A_fixture, idx_fixture) is False
+assert A_fixture.base is None
 ```
 #### 75. How to compute averages using a sliding window over an array? (★★★)
 

@@ -1,0 +1,61 @@
+{
+  "exercise": 74,
+  "task": "R44-T009",
+  "fixture_test": {
+    "input_counts": [
+      2,
+      0,
+      3
+    ],
+    "reconstructed_array": [
+      0,
+      0,
+      2,
+      2,
+      2
+    ],
+    "expected_reconstructed_array": [
+      0,
+      0,
+      2,
+      2,
+      2
+    ],
+    "matches_expected": true,
+    "bincount_minlength_3": [
+      2,
+      0,
+      3
+    ],
+    "matches_original_counts": true
+  },
+  "copy_view_experiment": {
+    "shares_memory_with_arange": false,
+    "base_is_none": true,
+    "mutation_isolated": true,
+    "array_nbytes": 40,
+    "dtype": "int64"
+  },
+  "trailing_zeros_contract": {
+    "counts_with_trailing": [
+      2,
+      0,
+      3,
+      0
+    ],
+    "default_bincount_drops_trailing": [
+      2,
+      0,
+      3
+    ],
+    "minlength_preserves_trailing": [
+      2,
+      0,
+      3,
+      0
+    ],
+    "matches_input": true
+  },
+  "assertions_passed": true,
+  "negative_tests_passed": true
+}

@@ -1,0 +1,12 @@
+TASK R44-T009 VERIFICATION SUMMARY
+===================================
+Item: NumPy exercise 74
+Source: source/exercises100.ktx (a74, h74)
+Generated: 100_Numpy_exercises_with_solutions.md
+Status: ALL CHECKS PASSED
+Resource and algorithmic contracts verified:
+  - Counts [2, 0, 3] reconstruct [0, 0, 2, 2, 2].
+  - np.bincount(..., minlength=3) returns original counts [2, 0, 3].
+  - np.repeat returns a new contiguous copy (A.base is None, shares_memory is False).
+  - Mutation isolation and trailing-zero minlength behavior confirmed.
+Deliberate failure detection verified.
