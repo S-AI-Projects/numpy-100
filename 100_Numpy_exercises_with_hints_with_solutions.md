@@ -562,7 +562,7 @@ for index in np.ndindex(Z.shape):
     print(index, Z[index])
 ```
 #### 56. Generate a generic 2D Gaussian-like array (★★☆)
-`hint: np.meshgrid, np.exp`
+`hint: np.meshgrid, np.exp (use an odd-sized centered grid to sample the center peak at mu and preserve symmetry)`
 
 ```python
 X, Y = np.meshgrid(np.linspace(-1, 1, 10), np.linspace(-1, 1, 10))
@@ -578,6 +578,16 @@ gx = np.exp(-((x - mu) ** 2 / (2.0 * sigma**2)))
 gy = np.exp(-((y - mu) ** 2 / (2.0 * sigma**2)))
 G = gy[:, None] * gx[None, :]
 print(G)
+
+# Boundary / Centered odd-sized grid:
+# Using an odd-sized grid (e.g., 5x5) symmetrically centered around mu ensures
+# the peak (exp(0) = 1.0) is sampled at the center (N//2, N//2) and values are symmetric across both axes:
+N = 5
+x_odd = np.linspace(-1, 1, N)
+y_odd = np.linspace(-1, 1, N)
+X_odd, Y_odd = np.meshgrid(x_odd, y_odd)
+G_odd = np.exp(-((X_odd - mu) ** 2 + (Y_odd - mu) ** 2) / (2.0 * sigma**2))
+print("Centered 5x5 Gaussian peak:", G_odd[N // 2, N // 2])
 ```
 #### 57. How to randomly place p elements in a 2D array? (★★☆)
 `hint: np.put, np.random.choice`
