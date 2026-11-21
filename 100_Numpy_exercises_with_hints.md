@@ -114,7 +114,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 35. How to compute ((A+B)*(-A/2)) in place (without copy)? (★★☆)
 `hint: np.add(out=), np.negative(out=), np.multiply(out=), np.divide(out=)`
 #### 36. Extract the integer part of a random array of positive numbers using 4 different methods (★★☆)
-`hint: %, np.floor, astype, np.trunc`
+`hint: %, np.floor, astype, np.trunc (note: %, floor, trunc preserve float dtype; astype converts to integer dtype)`
 #### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)
 `hint: np.arange`
 #### 38. Consider a generator function that generates 10 integers and use it to build an array (★☆☆)
