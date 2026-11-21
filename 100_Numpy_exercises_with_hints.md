@@ -185,7 +185,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 68. Considering a one-dimensional vector D, how to compute means of subsets of D using a vector S of same size describing subset  indices? (★★★)
 `hint: np.bincount`
 #### 69. How to get the diagonal of a dot product? (★★★)
-`hint: np.diag`
+`hint: np.diag, np.einsum, or np.sum(A * B.T, axis=1) (for A @ B, diagonal entries are row-column dot products)`
 #### 70. Consider the vector [1, 2, 3, 4, 5], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★)
 `hint: array[::4]`
 #### 71. Consider an array of dimension (5,5,3), how to multiply it by an array with dimensions (5,5)? (★★★)

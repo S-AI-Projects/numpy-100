@@ -770,6 +770,12 @@ np.sum(A * B.T, axis=1)
 
 # Faster version
 np.einsum("ij,ji->i", A, B)
+
+# Verification & Contract Note:
+# For A = [[1, 2], [3, 4]] and B = [[5, 6], [7, 8]], diagonal(A @ B) is [19, 50].
+# Common misconception: Multiplying A * B directly without transposing B fails to compute row-column dot products.
+# Shape contract: The fast version np.sum(A * B.T, axis=1) requires A and B.T to share identical shapes (m, k).
+# For empty matrices (e.g. shape (0, 2) and (2, 0)), the dot product is (0, 0) and the diagonal is an empty array of shape (0,).
 ```
 #### 70. Consider the vector [1, 2, 3, 4, 5], how to build a new vector with 3 consecutive zeros interleaved between each value? (★★★)
 
