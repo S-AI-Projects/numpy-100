@@ -1,0 +1,34 @@
+{
+  "task_id": "R44-T020",
+  "exercise": 84,
+  "input_shape": [
+    10,
+    10
+  ],
+  "window_shape": [
+    3,
+    3
+  ],
+  "extracted_shape": [
+    8,
+    8,
+    3,
+    3
+  ],
+  "first_window_top_left": 0,
+  "last_window_bottom_right": 99,
+  "as_strided_equals_sliding_window_view": true,
+  "mutant_killed_by_test": true,
+  "mutant_shape": [
+    7,
+    7,
+    3,
+    3
+  ],
+  "deliberate_wrong_result_failed_as_expected": true,
+  "tool_versions": {
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.5.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  }
+}

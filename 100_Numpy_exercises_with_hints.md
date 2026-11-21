@@ -215,7 +215,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 83. How to find the most frequent value in an array?
 `hint: np.bincount, argmax`
 #### 84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix (★★★)
-`hint: stride_tricks.as_strided, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib.stride_tricks import as_strided, sliding_window_view (10x10 with 3x3 window yields 8x8 blocks)`
 #### 85. Create a 2D array subclass such that Z[i,j] == Z[j,i] (★★★)
 `hint: class method`
 #### 86. Consider a set of p matrices with shape (n,n) and a set of p vectors with shape (n,1). How to compute the sum of of the p matrix products at once? (result has shape (n,1)) (★★★)

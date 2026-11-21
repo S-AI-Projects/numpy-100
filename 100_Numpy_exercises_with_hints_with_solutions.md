@@ -1022,22 +1022,28 @@ Z = np.random.randint(0,10,50)
 print(np.bincount(Z).argmax())
 ```
 #### 84. Extract all the contiguous 3x3 blocks from a random 10x10 matrix (★★★)
-`hint: stride_tricks.as_strided, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib.stride_tricks import as_strided, sliding_window_view (10x10 with 3x3 window yields 8x8 blocks)`
 
 ```python
 # Author: Chris Barker
+from numpy.lib.stride_tricks import as_strided, sliding_window_view
 
 Z = np.random.randint(0,5,(10,10))
 n = 3
 i = 1 + (Z.shape[0]-3)
 j = 1 + (Z.shape[1]-3)
-C = stride_tricks.as_strided(Z, shape=(i, j, n, n), strides=Z.strides + Z.strides)
+C = as_strided(Z, shape=(i, j, n, n), strides=Z.strides + Z.strides)
 print(C)
 
 # Author: Jeff Luo (@Jeff1999)
 
 Z = np.random.randint(0,5,(10,10))
 print(sliding_window_view(Z, window_shape=(3, 3)))
+
+# Boundary / Window Verification:
+# For Z = np.arange(100).reshape(10, 10), sliding 3x3 windows produce shape (8, 8, 3, 3):
+# - 8x8 valid window positions: i = 1 + (10 - 3) = 8, j = 1 + (10 - 3) = 8.
+# - First window C[0, 0] top-left is 0; last window C[-1, -1] bottom-right is 99.
 ```
 #### 85. Create a 2D array subclass such that Z[i,j] == Z[j,i] (★★★)
 `hint: class method`
