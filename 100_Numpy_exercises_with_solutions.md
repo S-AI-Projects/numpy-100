@@ -211,6 +211,12 @@ print(Z)
 # Alternative solution, in Python 3.5 and above
 Z = np.ones((5,3)) @ np.ones((3,2))
 print(Z)
+
+# Intermediate annotation:
+# For A of shape (5, 3) and B of shape (3, 2), entry Z[i, j] is the dot product
+# of row i in A and column j in B: sum_k (A[i, k] * B[k, j]).
+# With all-ones matrices, each entry is 1*1 + 1*1 + 1*1 = 3.0,
+# yielding an array of shape (5, 2) where every entry is 3.0.
 ```
 #### 25. Given a 1D array, negate all elements which are between 3 and 8, in place. (★☆☆)
 
