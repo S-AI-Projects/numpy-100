@@ -1,0 +1,83 @@
+{
+  "task_id": "R44-T014",
+  "exercise": 12,
+  "seed": 42,
+  "fixture_shape": [
+    3,
+    3,
+    3
+  ],
+  "fixture_min": 0.06381725610417532,
+  "fixture_max": 0.9756223516367559,
+  "reproducibility_verified": true,
+  "all_fixture_values_in_half_open_interval": true,
+  "variations_tested": [
+    {
+      "shape": [
+        1
+      ],
+      "size": 1,
+      "min": 0.04380376578722878,
+      "max": 0.04380376578722878,
+      "all_in_range": true
+    },
+    {
+      "shape": [
+        2,
+        2
+      ],
+      "size": 4,
+      "min": 0.15428949206754783,
+      "max": 0.96750973243421,
+      "all_in_range": true
+    },
+    {
+      "shape": [
+        4,
+        3,
+        2
+      ],
+      "size": 24,
+      "min": 0.007362269751005512,
+      "max": 0.8326781960578374,
+      "all_in_range": true
+    },
+    {
+      "shape": [
+        1,
+        5,
+        1,
+        2
+      ],
+      "size": 10,
+      "min": 0.11453007353597344,
+      "max": 0.7649988574160256,
+      "all_in_range": true
+    },
+    {
+      "shape": [
+        5,
+        5
+      ],
+      "size": 25,
+      "min": 0.022712073133860478,
+      "max": 0.8534030732681661,
+      "all_in_range": true
+    },
+    {
+      "shape": [
+        0
+      ],
+      "size": 0,
+      "min": null,
+      "max": null,
+      "all_in_range": true
+    }
+  ],
+  "deliberate_wrong_result_failed_as_expected": true,
+  "tool_versions": {
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.5.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  }
+}
