@@ -159,7 +159,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 55. What is the equivalent of enumerate for numpy arrays? (★★☆)
 `hint: np.ndenumerate, np.ndindex`
 #### 56. Generate a generic 2D Gaussian-like array (★★☆)
-`hint: np.meshgrid, np.exp`
+`hint: np.meshgrid, np.exp (use an odd-sized centered grid to sample the center peak at mu and preserve symmetry)`
 #### 57. How to randomly place p elements in a 2D array? (★★☆)
 `hint: np.put, np.random.choice`
 #### 58. Subtract the mean of each row of a matrix (★★☆)
