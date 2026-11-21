@@ -590,6 +590,13 @@ p = 3
 Z = np.zeros((n,n))
 np.put(Z, np.random.choice(range(n*n), p, replace=False),1)
 print(Z)
+
+# Step-by-step derivation for a 4x4 array with p=3 entries (seed 42):
+# 1. State: Z initialized to zeros with shape (4, 4), total 16 elements.
+# 2. State: np.random.choice(range(16), 3, replace=False) samples 3 unique linear indices without replacement.
+#    Note: p > 16 is invalid when replace=False and raises ValueError.
+# 3. State: np.put(Z, indices, 1) sets the selected flattened positions to 1 in-place.
+# 4. Result: np.count_nonzero(Z) is exactly 3.
 ```
 #### 58. Subtract the mean of each row of a matrix (★★☆)
 
