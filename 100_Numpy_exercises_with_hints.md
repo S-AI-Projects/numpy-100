@@ -31,7 +31,7 @@ File automatically generated. See the documentation to update questions/answers/
 #### 9. Create a 3x3 matrix with values ranging from 0 to 8 (★☆☆)
 `hint: reshape`
 #### 10. Find indices of non-zero elements from [1,2,0,0,4,0] (★☆☆)
-`hint: np.nonzero`
+`hint: np.nonzero (returns tuple of newly allocated index arrays for nonzero positions; O(N) time, O(K) space)`
 #### 11. Create a 3x3 identity matrix (★☆☆)
 `hint: np.eye`
 #### 12. Create a 3x3x3 array with random values (★☆☆)
