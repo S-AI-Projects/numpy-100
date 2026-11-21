@@ -1288,6 +1288,15 @@ n = 4
 M = np.logical_and.reduce(np.mod(X, 1) == 0, axis=-1)
 M &= (X.sum(axis=-1) == n)
 print(X[M])
+
+# Comparison with an alternative method that explicitly enforces non-negativity (X >= 0)
+# and integer checks via np.all(np.floor(X) == X, axis=-1):
+# For multinomial draws with n degrees, counts must be non-negative integers summing to n.
+# Intermediate representation difference:
+# - Method 1 uses np.mod(X, 1) == 0 with np.logical_and.reduce across axis=-1.
+# - Method 2 uses np.all(np.floor(X) == X, axis=-1) combined with np.all(X >= 0, axis=-1) and X.sum(axis=-1) == n.
+M_alt = np.all(np.floor(X) == X, axis=-1) & np.all(X >= 0, axis=-1) & (X.sum(axis=-1) == n)
+print(X[M_alt])
 ```
 #### 100. Compute bootstrapped 95% confidence intervals for the mean of a 1D array X (i.e., resample the elements of an array with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
