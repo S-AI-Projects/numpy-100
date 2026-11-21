@@ -342,7 +342,7 @@ np.negative(A,out=A)
 np.multiply(A,B,out=A)
 ```
 #### 36. Extract the integer part of a random array of positive numbers using 4 different methods (★★☆)
-`hint: %, np.floor, astype, np.trunc`
+`hint: %, np.floor, astype, np.trunc (note: %, floor, trunc preserve float dtype; astype converts to integer dtype)`
 
 ```python
 Z = np.random.uniform(0,10,10)
@@ -352,6 +352,12 @@ print(Z // 1)
 print(np.floor(Z))
 print(Z.astype(int))
 print(np.trunc(Z))
+
+# For positive input Z = np.array([1.2, 2.9, 3.0]):
+# All extraction methods yield integer values [1, 2, 3].
+# Note the distinction between values and output dtype:
+# - Z - Z%1, Z // 1, np.floor(Z), and np.trunc(Z) produce floating-point values (e.g. 1., 2., 3. with float64 dtype).
+# - Z.astype(int) explicitly converts the elements to integer dtype (int64/int32).
 ```
 #### 37. Create a 5x5 matrix with row values ranging from 0 to 4 (★★☆)
 `hint: np.arange`

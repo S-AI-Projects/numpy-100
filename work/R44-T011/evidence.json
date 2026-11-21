@@ -1,0 +1,57 @@
+{
+  "task_id": "R44-T011",
+  "exercise": 36,
+  "input": [
+    1.2,
+    2.9,
+    3.0
+  ],
+  "methods": {
+    "Z - Z % 1": {
+      "values": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "float64"
+    },
+    "Z // 1": {
+      "values": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "float64"
+    },
+    "np.floor(Z)": {
+      "values": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "float64"
+    },
+    "np.trunc(Z)": {
+      "values": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "dtype": "float64"
+    },
+    "Z.astype(int)": {
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "dtype": "int64"
+    }
+  },
+  "deliberate_wrong_result_failed_as_expected": true,
+  "tool_versions": {
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.5.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  }
+}
