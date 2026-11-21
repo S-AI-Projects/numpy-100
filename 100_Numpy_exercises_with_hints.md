@@ -35,7 +35,7 @@ File automatically generated. See the documentation to update questions/answers/
 #### 11. Create a 3x3 identity matrix (★☆☆)
 `hint: np.eye`
 #### 12. Create a 3x3x3 array with random values (★☆☆)
-`hint: np.random.random`
+`hint: np.random.random or np.random.default_rng (all values lie in [0, 1))`
 #### 13. Create a 10x10 array with random values and find the minimum and maximum values (★☆☆)
 `hint: min, max`
 #### 14. Create a random vector of size 30 and find the mean value (★☆☆)
