@@ -1,0 +1,30 @@
+{
+  "task_id": "R44-T016",
+  "exercise": 24,
+  "A_shape": [
+    5,
+    3
+  ],
+  "B_shape": [
+    3,
+    2
+  ],
+  "result_shape": [
+    5,
+    2
+  ],
+  "expected_value": 3.0,
+  "all_entries_equal_3": true,
+  "intermediate_products": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "intermediate_sum": 3.0,
+  "deliberate_wrong_result_failed_as_expected": true,
+  "tool_versions": {
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.5.5",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  }
+}
