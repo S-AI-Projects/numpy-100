@@ -161,7 +161,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 56. Generate a generic 2D Gaussian-like array (★★☆)
 `hint: np.meshgrid, np.exp`
 #### 57. How to randomly place p elements in a 2D array? (★★☆)
-`hint: np.put, np.random.choice`
+`hint: np.put, np.random.choice (sample p unique 1D indices without replacement; requires p <= n*n)`
 #### 58. Subtract the mean of each row of a matrix (★★☆)
 `hint: mean(axis=,keepdims=)`
 #### 59. How to sort an array by the nth column? (★★☆)
