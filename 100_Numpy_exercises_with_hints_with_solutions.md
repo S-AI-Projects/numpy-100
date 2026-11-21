@@ -982,19 +982,25 @@ print(Z)
 print(R)
 ```
 #### 81. Consider an array Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14], how to generate an array R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], ..., [11,12,13,14]]? (★★★)
-`hint: stride_tricks.as_strided, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib.stride_tricks import as_strided, sliding_window_view`
 
 ```python
 # Author: Stefan van der Walt
+from numpy.lib.stride_tricks import as_strided, sliding_window_view
 
-Z = np.arange(1,15,dtype=np.uint32)
-R = stride_tricks.as_strided(Z,(11,4),(4,4))
+Z = np.arange(1, 15, dtype=np.uint32)
+R = as_strided(Z, (11, 4), (4, 4))
 print(R)
 
 # Author: Jeff Luo (@Jeff1999)
 
 Z = np.arange(1, 15, dtype=np.uint32)
-print(sliding_window_view(Z, window_shape=4))
+R_view = sliding_window_view(Z, window_shape=4)
+print(R_view)
+
+# Concrete verification:
+# Input arange(1, 15) with window length 4 yields shape (11, 4),
+# with first row [1, 2, 3, 4] and last row [11, 12, 13, 14].
 ```
 #### 82. Compute a matrix rank (★★★)
 `hint: np.linalg.svd, np.linalg.matrix_rank`

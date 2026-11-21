@@ -209,7 +209,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 #### 80. Consider an arbitrary array, write a function that extracts a subpart with a fixed shape and centered on a given element (pad with a `fill` value when necessary) (★★★)
 `hint: minimum maximum`
 #### 81. Consider an array Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14], how to generate an array R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], ..., [11,12,13,14]]? (★★★)
-`hint: stride_tricks.as_strided, from numpy.lib.stride_tricks import sliding_window_view (np>=1.20.0)`
+`hint: from numpy.lib.stride_tricks import as_strided, sliding_window_view`
 #### 82. Compute a matrix rank (★★★)
 `hint: np.linalg.svd, np.linalg.matrix_rank`
 #### 83. How to find the most frequent value in an array?
