@@ -84,6 +84,15 @@ print(Z)
 ```python
 nz = np.nonzero([1,2,0,0,4,0])
 print(nz)
+
+# Resource / Operation note:
+# - Operation: np.nonzero returns a tuple of index arrays (one per dimension).
+#   For 1D [1,2,0,0,4,0], it returns (array([0, 1, 4]),).
+#   For an all-zero vector, it returns an empty array: (array([], dtype=int64),).
+# - Memory/View behavior: The returned index arrays are newly allocated copies (not views);
+#   mutating the returned indices does not affect the input array.
+# - Complexity: Time complexity is O(N) to scan N elements; space complexity is O(K) where
+#   K is the number of nonzero elements.
 ```
 #### 11. Create a 3x3 identity matrix (★☆☆)
 
